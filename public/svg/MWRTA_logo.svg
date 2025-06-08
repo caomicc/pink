@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   id="svg2559"
+   sodipodi:version="0.32"
+   inkscape:version="0.46"
+   width="440"
+   height="440"
+   version="1.0"
+   sodipodi:docname="MWRTA logo.svg"
+   style="display:inline"
+   inkscape:output_extension="org.inkscape.output.svg.inkscape"
+   inkscape:export-filename="K:\Documents\UIUC Class Documents\BTW 261\mwrta-logo.png"
+   inkscape:export-xdpi="90"
+   inkscape:export-ydpi="90">
+  <metadata
+     id="metadata2564">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title>MWRTA Logo</dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <defs
+     id="defs2562">
+    <inkscape:perspective
+       sodipodi:type="inkscape:persp3d"
+       inkscape:vp_x="0 : 526.18109 : 1"
+       inkscape:vp_y="0 : 1000 : 0"
+       inkscape:vp_z="744.09448 : 526.18109 : 1"
+       inkscape:persp3d-origin="372.04724 : 350.78739 : 1"
+       id="perspective2566" />
+  </defs>
+  <sodipodi:namedview
+     inkscape:window-height="744"
+     inkscape:window-width="666"
+     inkscape:pageshadow="2"
+     inkscape:pageopacity="0.0"
+     guidetolerance="10.0"
+     gridtolerance="10.0"
+     objecttolerance="10.0"
+     borderopacity="1.0"
+     bordercolor="#666666"
+     pagecolor="#ffffff"
+     id="base"
+     showgrid="false"
+     inkscape:zoom="1"
+     inkscape:window-x="152"
+     inkscape:window-y="100"
+     inkscape:current-layer="Logo"
+     inkscape:snap-global="false"
+     inkscape:cx="230.33735"
+     inkscape:cy="214.47826">
+    <inkscape:grid
+       type="xygrid"
+       id="grid2385" />
+  </sodipodi:namedview>
+  <g
+     inkscape:groupmode="layer"
+     id="Logo"
+     style="display:inline">
+    <path
+       sodipodi:type="arc"
+       style="opacity:1;fill:#ffffff;fill-opacity:1;fill-rule:evenodd;stroke:#04b546;stroke-width:5;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       id="OuterCircle"
+       sodipodi:cx="27.5"
+       sodipodi:cy="27.5"
+       sodipodi:rx="25"
+       sodipodi:ry="25"
+       d="M 52.5,27.5 A 25,25 0 1 1 2.5,27.5 A 25,25 0 1 1 52.5,27.5 z"
+       transform="scale(8,8)" />
+    <path
+       style="fill:#3a3b9c"
+       d="M 204.44445,144 L 204.44445,296 L 251.11111,296 L 282.22222,200 L 313.33334,296 L 360,296 L 360,144 L 328.88889,144 L 328.88889,240 L 297.77778,144 L 266.66666,144 L 235.55555,240 L 235.55555,144 L 204.44445,144 z"
+       id="W"
+       sodipodi:nodetypes="cccccccccccccc" />
+    <path
+       style="fill:#04b546"
+       d="M 204.44445,144 L 188.88889,144 L 157.77778,232 L 126.66666,144 L 80,144 L 80,296 L 111.11111,296 L 111.11111,192 L 142.22222,296 L 173.33334,296 L 204.44445,192 L 204.44445,144 z"
+       id="M"
+       sodipodi:nodetypes="cccccccccccc" />
+  </g>
+</svg>
