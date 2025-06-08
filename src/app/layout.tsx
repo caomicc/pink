@@ -90,8 +90,8 @@ export default function RootLayout({
         </div> */}
         {children}
         <div className='mx-4'>
-        <footer className="mt-16 max-w-5xl mx-auto border-white/30 border border-1 backdrop-blur-xl rounded-2xl shadow-sm backdrop-blur-xl bg-white/10">
-          <div className="w-full max-w-screen-xl mx-auto p-4 md:py-8">
+        <footer className="mt-16 max-w-5xl mx-auto">
+          <div className="w-full max-w-screen-xl mx-auto p-4">
             <div className="sm:flex sm:items-center sm:justify-between">
               <ul className="flex flex-wrap items-center mb-6 text-sm font-medium text-gray-500 sm:mb-0 dark:text-gray-200">
                 <li>

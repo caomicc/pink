@@ -7,6 +7,7 @@ import { ArrowRight } from "lucide-react";
 import Link from "next/link";
 import { cn, resolveTailwindColor } from "@/lib/utils";
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/components/ui/tooltip";
+import CardSwap, { Card } from "@/components/ui/card-swap";
 
 
 const gradientColors = [
@@ -352,6 +353,143 @@ export default function Home() {
               </div>
             </div>
           </div>
+
+          <div className="border-white/30 border border-1 backdrop-blur-xl rounded-2xl shadow-sm backdrop-blur-xl bg-white/10 overflow-hidden relative flex flex-col lg:flex-row gap-8 md:gap-18 items-center p-8 min-h-[450px]">
+            <div className="w-full lg:w-2/5">
+              <img
+                alt="workhuman logo spark"
+                loading="lazy"
+                decoding="async"
+                data-nimg="1"
+                className={cn('mb-8 w-full h-auto', 'max-w-[200px] md:max-w-[250px]')}
+                src={'/svg/wh_logo-long.svg'}
+                style={{ color: "transparent" }}
+              />
+              <h2 className="sr-only text-3xl md:text-4xl font-semibold mb-8 text-[var(--white)]">
+                Workhuman
+              </h2>
+              <p className="text-md md:text-xl text-[var(--white-icon)] mb-4">
+                At Workhuman, I lead front-end initiatives for global recognition platforms, collaborating with cross-functional teams to deliver accessible, scalable, and delightful user experiences.
+              </p>
+              <p className="text-md md:text-xl text-[var(--white-icon)] mb-0">
+                 My work spans from building robust design systems to optimizing performance and accessibility for millions of users worldwide.
+              </p>
+            </div>
+            <CardSwap
+              cardDistance={160}
+              verticalDistance={100}
+              delay={3000}
+              pauseOnHover={false}
+            >
+              <Card>
+                <p className={'px-3 py-2'}>Human Intelligence</p>
+              </Card>
+              <Card>
+                <p className={'px-3 py-2'}>Social Recognition</p>
+              </Card>
+              <Card>
+                <p className={'px-3 py-2'}>Platform Page</p>
+              </Card>
+              <Card>
+                <p className={'px-3 py-2'}>Demo Page</p>
+              </Card>
+            </CardSwap>
+          </div>
+
+
+
+          <div className="border-white/30 border border-1 backdrop-blur-xl rounded-2xl shadow-sm backdrop-blur-xl bg-white/10 overflow-hidden relative flex flex-col lg:flex-row gap-8 md:gap-18 items-center p-8 min-h-[450px]">
+            <div className="w-full lg:w-2/5">
+              <img
+                alt="workhuman logo spark"
+                loading="lazy"
+                decoding="async"
+                data-nimg="1"
+                className={cn('mb-8 w-full h-auto', 'max-w-[200px] md:max-w-[250px]')}
+                src={'/svg/mf-logo-white.svg'}
+                style={{ color: "transparent" }}
+              />
+              <h2 className="sr-only text-3xl md:text-4xl font-semibold mb-8 text-[var(--white)]">
+                Membersfirst
+              </h2>
+              <p className="text-md md:text-xl text-[var(--white-icon)] mb-4">
+                At Membersfirst, I played a pivotal role in developing and maintaining award-winning community websites for country and golf clubs, focusing on user-centric design and accessibility.
+              </p>
+            </div>
+            <CardSwap
+              cardDistance={160}
+              verticalDistance={100}
+              delay={3000}
+              pauseOnHover={false}
+              // classes="left-0"
+            >
+                <Card>
+                <div className="px-3 py-2">
+                  <div>Club at Ibis</div>
+                  <div className="text-xs text-[var(--white-icon)] mt-1">
+                  Best In Class (Lifestyle) – Interactive Media Awards
+                  </div>
+                </div>
+                </Card>
+                <Card>
+                <div className="px-3 py-2">
+                  <div>Addison Reserve CC</div>
+                  <div className="text-xs text-[var(--white-icon)] mt-1">
+                  Best In Class (Lifestyle) – Interactive Media Awards
+                  </div>
+                </div>
+                </Card>
+                <Card>
+                <div className="px-3 py-2">
+                  <div>The Club at Renaissance</div>
+                  <div className="text-xs text-[var(--white-icon)] mt-1">
+                  Best In Class (Lifestyle) – Interactive Media Awards
+                  </div>
+                </div>
+                </Card>
+                <Card>
+                <div className="px-3 py-2">
+                  <div>Steel Club</div>
+                  <div className="text-xs text-[var(--white-icon)] mt-1">
+                  Best In Class (Lifestyle) – Interactive Media Awards
+                  </div>
+                </div>
+                </Card>
+                <Card>
+                <div className="px-3 py-2">
+                  <div>Colleton River Club</div>
+                  <div className="text-xs text-[var(--white-icon)] mt-1">
+                  Best In Class (Lifestyle) – Interactive Media Awards
+                  </div>
+                </div>
+                </Card>
+                <Card>
+                <div className="px-3 py-2">
+                  <div>Manchester Country Club</div>
+                  <div className="text-xs text-[var(--white-icon)] mt-1">
+                  Best In Class (Lifestyle) – Interactive Media Awards
+                  </div>
+                </div>
+                </Card>
+                <Card>
+                <div className="px-3 py-2">
+                  <div>The Silverleaf Club</div>
+                  <div className="text-xs text-[var(--white-icon)] mt-1">
+                  Best In Class (Lifestyle) – Interactive Media Awards
+                  </div>
+                </div>
+                </Card>
+                <Card>
+                <div className="px-3 py-2">
+                  <div>Local 02045</div>
+                  <div className="text-xs text-[var(--white-icon)] mt-1">
+                  Outstanding Achievement (Restaurant) – Interactive Media Awards
+                  </div>
+                </div>
+                </Card>
+            </CardSwap>
+          </div>
+
         </div>
       </div>
     </>
