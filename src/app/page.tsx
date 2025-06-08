@@ -88,7 +88,7 @@ export default function Home() {
                       ),
                     },
                     {
-                      href: "https://linkedin.com/in/hernandezoscar-dev",
+                      href: "https://linkedin.com/in/caomicc",
                       ariaLabel: "LinkedIn",
                       icon: (
                         <svg
