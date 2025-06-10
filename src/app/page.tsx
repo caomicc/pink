@@ -1,52 +1,39 @@
-"use client";
+'use client';
 
-import Aurora from "@/components/ui/aurora";
-import ProfileCard from "@/components/ui/profile-card";
-import { Button } from "@/components/ui/button";
-import { ArrowRight } from "lucide-react";
-import Link from "next/link";
-import { cn, resolveTailwindColor } from "@/lib/utils";
-import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/components/ui/tooltip";
-import CardSwap, { Card } from "@/components/ui/card-swap";
-
+import Aurora from '@/components/ui/aurora';
+import ProfileCard from '@/components/ui/profile-card';
+import { Button } from '@/components/ui/button';
+import { ArrowRight } from 'lucide-react';
+import Link from 'next/link';
+import { cn, resolveTailwindColor } from '@/lib/utils';
+import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from '@/components/ui/tooltip';
+import CardSwap, { Card } from '@/components/ui/card-swap';
 
 const gradientColors = [
-resolveTailwindColor('--azure-500').hex,
-resolveTailwindColor('--rose-500').hex,
-resolveTailwindColor('--blue-violet-500').hex,
-resolveTailwindColor('--amber-500').hex,
-]
-
+  resolveTailwindColor('--azure-500').hex,
+  resolveTailwindColor('--rose-500').hex,
+  resolveTailwindColor('--blue-violet-500').hex,
+  resolveTailwindColor('--amber-500').hex,
+];
 
 export default function Home() {
-
   return (
     <>
       <div className=" absolute top-0 left-0 w-full z-[-1] overflow-hidden">
         <div className="w-[1400px] h-[600px] md:w-full">
-          <Aurora
-            colorStops={gradientColors}
-            blend={0.5}
-            amplitude={1.0}
-            speed={0.5}
-          />
+          <Aurora colorStops={gradientColors} blend={0.5} amplitude={1.0} speed={0.5} />
         </div>
       </div>
       <div className=" absolute bottom-[-50px] w-full left-0 z-[-1] rotate-180 overflow-hidden">
         <div className="w-[1400px] h-[100vh] md:w-full">
-          <Aurora
-          colorStops={gradientColors}
-          blend={0.5}
-          amplitude={1.0}
-          speed={0.5}
-        />
+          <Aurora colorStops={gradientColors} blend={0.5} amplitude={1.0} speed={0.5} />
         </div>
       </div>
       <div className="text-[var(--white)] mt-0 md:mt-0" id="home">
         <div className="max-w-5xl mx-auto space-y-8 px-4 sm:px-0">
           <div className="text-left space-y-4">
             <div className="flex flex-col-reverse lg:flex-row lg:items-center space-y-4 lg:space-y-0 lg:space-x-8 gap-8 md:gap-18">
-              <div className={"lg:w-1/3 mx-auto lg:mx-0"}>
+              <div className={'lg:w-1/3 mx-auto lg:mx-0'}>
                 <ProfileCard
                   name=""
                   title=""
@@ -57,26 +44,24 @@ export default function Home() {
                   backgroundPortraitUrl="/cammy.webp"
                   showUserInfo={true}
                   enableTilt={false}
-                  onContactClick={() => console.log("Contact clicked")}
+                  onContactClick={() => console.log('Contact clicked')}
                 />
               </div>
               <div className="lg:w-2/3 w-full flex flex-col justify-center space-y-4">
                 <h1 className="text-[var(--white)] text-5xl md:text-6xl font-medium text-pretty leading-none">
                   Senior Web Developer
                 </h1>
-                <p className="text-md md:text-2xl text-[var(--white-icon)]">
-                  Hi! I'm Cammy.
-                </p>
+                <p className="text-md md:text-2xl text-[var(--white-icon)]">Hi! I'm Cammy.</p>
                 <p className="text-md md:text-xl text-[var(--white-icon)]">
-                  I have been described as a determined, adept, and "pixel-perfect".
-                  I strive to make the integration between UI/UX and code seamless
-                  while keeping all audiences in mind.
+                  I have been described as a determined, adept, and "pixel-perfect". I strive to
+                  make the integration between UI/UX and code seamless while keeping all audiences
+                  in mind.
                 </p>
                 <div className="flex justify-start gap-2 pt-3 md:pt-4">
                   {[
                     {
-                      href: "https://github.com/caomicc",
-                      ariaLabel: "GitHub",
+                      href: 'https://github.com/caomicc',
+                      ariaLabel: 'GitHub',
                       icon: (
                         <svg
                           xmlns="http://www.w3.org/2000/svg"
@@ -89,8 +74,8 @@ export default function Home() {
                       ),
                     },
                     {
-                      href: "https://linkedin.com/in/caomicc",
-                      ariaLabel: "LinkedIn",
+                      href: 'https://linkedin.com/in/caomicc',
+                      ariaLabel: 'LinkedIn',
                       icon: (
                         <svg
                           xmlns="http://www.w3.org/2000/svg"
@@ -103,13 +88,12 @@ export default function Home() {
                       ),
                     },
                     {
-                      href: "https://mail.google.com/mail/?view=cm&fs=1&to=caomicc@gmail.com&su=Hey%20Cam!",
-                      ariaLabel: "Email",
+                      href: 'https://mail.google.com/mail/?view=cm&fs=1&to=caomicc@gmail.com&su=Hey%20Cam!',
+                      ariaLabel: 'Email',
                       icon: (
                         <svg
                           xmlns="http://www.w3.org/2000/svg"
                           className="size-6"
-
                           viewBox="0 0 24 24"
                         >
                           <path
@@ -120,8 +104,8 @@ export default function Home() {
                       ),
                     },
                     {
-                      href: "https://wakatime.com/@caomicc",
-                      ariaLabel: "Wakatime",
+                      href: 'https://wakatime.com/@caomicc',
+                      ariaLabel: 'Wakatime',
                       icon: (
                         <svg
                           xmlns="http://www.w3.org/2000/svg"
@@ -129,9 +113,19 @@ export default function Home() {
                           fill="currentColor"
                           className="size-6"
                         >
-                          <path fillRule="evenodd" clipRule="evenodd" d="M170 20C87.156 20 20 87.156 20 170C20 252.844 87.156 320 170 320C252.844 320 320 252.844 320 170C320 87.156 252.844 20 170 20V20V20Z" stroke="transparent" strokeWidth="40"/>
-                          <path d="M190.183 213.541C188.74 215.443 186.576 216.667 184.151 216.667C183.913 216.667 183.677 216.651 183.443 216.627C183.042 216.579 182.823 216.545 182.606 216.497C182.337 216.434 182.137 216.375 181.94 216.308C181.561 216.176 181.392 216.109 181.228 216.035C180.843 215.849 180.707 215.778 180.572 215.701C180.205 215.478 180.109 215.412 180.014 215.345C179.856 215.233 179.698 215.117 179.547 214.992C179.251 214.746 179.147 214.65 179.044 214.552C178.731 214.241 178.531 214.018 178.341 213.785C177.982 213.331 177.69 212.888 177.438 212.415L168.6 198.214L159.766 212.415C158.38 214.939 155.874 216.667 152.995 216.667C150.106 216.667 147.588 214.926 146.243 212.346L107.607 156.061C106.337 154.529 105.556 152.499 105.556 150.258C105.556 145.514 109.043 141.665 113.344 141.665C116.127 141.665 118.564 143.282 119.942 145.708L152.555 193.9L161.735 178.952C163.058 176.288 165.626 174.478 168.575 174.478C171.273 174.478 173.652 175.996 175.049 178.298L184.517 193.839L235.684 120.583C237.075 118.226 239.475 116.667 242.213 116.667C246.514 116.667 250 120.514 250 125.258C250 127.332 249.337 129.232 248.23 130.715L190.183 213.541Z"
-                           fill="black" stroke="black" strokeWidth="10"/>
+                          <path
+                            fillRule="evenodd"
+                            clipRule="evenodd"
+                            d="M170 20C87.156 20 20 87.156 20 170C20 252.844 87.156 320 170 320C252.844 320 320 252.844 320 170C320 87.156 252.844 20 170 20V20V20Z"
+                            stroke="transparent"
+                            strokeWidth="40"
+                          />
+                          <path
+                            d="M190.183 213.541C188.74 215.443 186.576 216.667 184.151 216.667C183.913 216.667 183.677 216.651 183.443 216.627C183.042 216.579 182.823 216.545 182.606 216.497C182.337 216.434 182.137 216.375 181.94 216.308C181.561 216.176 181.392 216.109 181.228 216.035C180.843 215.849 180.707 215.778 180.572 215.701C180.205 215.478 180.109 215.412 180.014 215.345C179.856 215.233 179.698 215.117 179.547 214.992C179.251 214.746 179.147 214.65 179.044 214.552C178.731 214.241 178.531 214.018 178.341 213.785C177.982 213.331 177.69 212.888 177.438 212.415L168.6 198.214L159.766 212.415C158.38 214.939 155.874 216.667 152.995 216.667C150.106 216.667 147.588 214.926 146.243 212.346L107.607 156.061C106.337 154.529 105.556 152.499 105.556 150.258C105.556 145.514 109.043 141.665 113.344 141.665C116.127 141.665 118.564 143.282 119.942 145.708L152.555 193.9L161.735 178.952C163.058 176.288 165.626 174.478 168.575 174.478C171.273 174.478 173.652 175.996 175.049 178.298L184.517 193.839L235.684 120.583C237.075 118.226 239.475 116.667 242.213 116.667C246.514 116.667 250 120.514 250 125.258C250 127.332 249.337 129.232 248.23 130.715L190.183 213.541Z"
+                            fill="black"
+                            stroke="black"
+                            strokeWidth="10"
+                          />
                         </svg>
                       ),
                     },
@@ -156,70 +150,69 @@ export default function Home() {
             <div className="flex gap-12 md:gap-20 w-max marquee-content">
               {/* Skill icons start */}
               {[
-                { src: "/svg/react.svg", alt: "react", label: "React" },
-                { src: "/svg/next.svg", alt: "next", label: "Next" },
-                { src: "/svg/typeScript.svg", alt: "typeScript", label: "TypeScript" },
-                { src: "/svg/contentful_logo.svg", alt: "contentful", label: "Contentful" },
-                { src: "/svg/tailwindcss.svg", alt: "tailwindcss", label: "Tailwindcss" },
-                { src: "/svg/vercel.svg", alt: "vercel", label: "Vercel" },
-                { src: "/svg/nodejs.svg", alt: "nodejs", label: "Nodejs" },
-                { src: "/svg/shadcn-ui.svg", alt: "shadcn ui", label: "Shadcn UI" },
-                { src: "/svg/storybook.svg", alt: "storybook", label: "Storybook" },
-                { src: "/svg/radix-ui_light.svg", alt: "shadcn ui", label: "Radix UI" },
-                { src: "/svg/chakra-ui.svg", alt: "chakra ui", label: "Chakra UI" },
-                { src: "/svg/HTML5.svg", alt: "HTML5", label: "HTML5" },
-                { src: "/svg/CSS3.svg", alt: "CSS3", label: "CSS3" },
-                { src: "/svg/javaScript.svg", alt: "javaScript", label: "JavaScript" },
-                { src: "/svg/git.svg", alt: "git", label: "Git" },
-                { src: "/svg/bash.svg", alt: "bash", label: "Bash" },
-                { src: "/svg/vscode.svg", alt: "vscode", label: "Vscode" },
-                { src: "/svg/figma.svg", alt: "figma", label: "Figma" },
-                { src: "/svg/sass.svg", alt: "sass", label: "Sass" },
-                { src: "/svg/wordpress.svg", alt: "wordpress", label: "WordPress" },
-                { src: "/svg/illustrator.svg", alt: "illustrator", label: "Illustrator" },
-                { src: "/svg/react.svg", alt: "react", label: "React" },
-                { src: "/svg/next.svg", alt: "next", label: "Next" },
-                { src: "/svg/typeScript.svg", alt: "typeScript", label: "TypeScript" },
-                { src: "/svg/contentful_logo.svg", alt: "contentful", label: "Contentful" },
-                { src: "/svg/tailwindcss.svg", alt: "tailwindcss", label: "Tailwindcss" },
-                { src: "/svg/vercel.svg", alt: "vercel", label: "Vercel" },
-                { src: "/svg/nodejs.svg", alt: "nodejs", label: "Nodejs" },
-                { src: "/svg/shadcn-ui.svg", alt: "shadcn ui", label: "Shadcn UI" },
-                { src: "/svg/storybook.svg", alt: "storybook", label: "Storybook" },
-                { src: "/svg/radix-ui_light.svg", alt: "shadcn ui", label: "Radix UI" },
-                { src: "/svg/chakra-ui.svg", alt: "chakra ui", label: "Chakra UI" },
-                { src: "/svg/HTML5.svg", alt: "HTML5", label: "HTML5" },
-                { src: "/svg/CSS3.svg", alt: "CSS3", label: "CSS3" },
-                { src: "/svg/javaScript.svg", alt: "javaScript", label: "JavaScript" },
-                { src: "/svg/git.svg", alt: "git", label: "Git" },
-                { src: "/svg/bash.svg", alt: "bash", label: "Bash" },
-                { src: "/svg/vscode.svg", alt: "vscode", label: "Vscode" },
-                { src: "/svg/figma.svg", alt: "figma", label: "Figma" },
-                { src: "/svg/sass.svg", alt: "sass", label: "Sass" },
-                { src: "/svg/wordpress.svg", alt: "wordpress", label: "WordPress" },
-                { src: "/svg/illustrator.svg", alt: "illustrator", label: "Illustrator" },
-                { src: "/svg/react.svg", alt: "react", label: "React" },
-                { src: "/svg/next.svg", alt: "next", label: "Next" },
-                { src: "/svg/typeScript.svg", alt: "typeScript", label: "TypeScript" },
-                { src: "/svg/contentful_logo.svg", alt: "contentful", label: "Contentful" },
-                { src: "/svg/tailwindcss.svg", alt: "tailwindcss", label: "Tailwindcss" },
-                { src: "/svg/vercel.svg", alt: "vercel", label: "Vercel" },
-                { src: "/svg/nodejs.svg", alt: "nodejs", label: "Nodejs" },
-                { src: "/svg/shadcn-ui.svg", alt: "shadcn ui", label: "Shadcn UI" },
-                { src: "/svg/storybook.svg", alt: "storybook", label: "Storybook" },
-                { src: "/svg/radix-ui_light.svg", alt: "shadcn ui", label: "Radix UI" },
-                { src: "/svg/chakra-ui.svg", alt: "chakra ui", label: "Chakra UI" },
-                { src: "/svg/HTML5.svg", alt: "HTML5", label: "HTML5" },
-                { src: "/svg/CSS3.svg", alt: "CSS3", label: "CSS3" },
-                { src: "/svg/javaScript.svg", alt: "javaScript", label: "JavaScript" },
-                { src: "/svg/git.svg", alt: "git", label: "Git" },
-                { src: "/svg/bash.svg", alt: "bash", label: "Bash" },
-                { src: "/svg/vscode.svg", alt: "vscode", label: "Vscode" },
-                { src: "/svg/figma.svg", alt: "figma", label: "Figma" },
-                { src: "/svg/sass.svg", alt: "sass", label: "Sass" },
-                { src: "/svg/wordpress.svg", alt: "wordpress", label: "WordPress" },
-                { src: "/svg/illustrator.svg", alt: "illustrator", label: "Illustrator" },
-
+                { src: '/svg/react.svg', alt: 'react', label: 'React' },
+                { src: '/svg/next.svg', alt: 'next', label: 'Next' },
+                { src: '/svg/typeScript.svg', alt: 'typeScript', label: 'TypeScript' },
+                { src: '/svg/contentful_logo.svg', alt: 'contentful', label: 'Contentful' },
+                { src: '/svg/tailwindcss.svg', alt: 'tailwindcss', label: 'Tailwindcss' },
+                { src: '/svg/vercel.svg', alt: 'vercel', label: 'Vercel' },
+                { src: '/svg/nodejs.svg', alt: 'nodejs', label: 'Nodejs' },
+                { src: '/svg/shadcn-ui.svg', alt: 'shadcn ui', label: 'Shadcn UI' },
+                { src: '/svg/storybook.svg', alt: 'storybook', label: 'Storybook' },
+                { src: '/svg/radix-ui_light.svg', alt: 'shadcn ui', label: 'Radix UI' },
+                { src: '/svg/chakra-ui.svg', alt: 'chakra ui', label: 'Chakra UI' },
+                { src: '/svg/HTML5.svg', alt: 'HTML5', label: 'HTML5' },
+                { src: '/svg/CSS3.svg', alt: 'CSS3', label: 'CSS3' },
+                { src: '/svg/javaScript.svg', alt: 'javaScript', label: 'JavaScript' },
+                { src: '/svg/git.svg', alt: 'git', label: 'Git' },
+                { src: '/svg/bash.svg', alt: 'bash', label: 'Bash' },
+                { src: '/svg/vscode.svg', alt: 'vscode', label: 'Vscode' },
+                { src: '/svg/figma.svg', alt: 'figma', label: 'Figma' },
+                { src: '/svg/sass.svg', alt: 'sass', label: 'Sass' },
+                { src: '/svg/wordpress.svg', alt: 'wordpress', label: 'WordPress' },
+                { src: '/svg/illustrator.svg', alt: 'illustrator', label: 'Illustrator' },
+                { src: '/svg/react.svg', alt: 'react', label: 'React' },
+                { src: '/svg/next.svg', alt: 'next', label: 'Next' },
+                { src: '/svg/typeScript.svg', alt: 'typeScript', label: 'TypeScript' },
+                { src: '/svg/contentful_logo.svg', alt: 'contentful', label: 'Contentful' },
+                { src: '/svg/tailwindcss.svg', alt: 'tailwindcss', label: 'Tailwindcss' },
+                { src: '/svg/vercel.svg', alt: 'vercel', label: 'Vercel' },
+                { src: '/svg/nodejs.svg', alt: 'nodejs', label: 'Nodejs' },
+                { src: '/svg/shadcn-ui.svg', alt: 'shadcn ui', label: 'Shadcn UI' },
+                { src: '/svg/storybook.svg', alt: 'storybook', label: 'Storybook' },
+                { src: '/svg/radix-ui_light.svg', alt: 'shadcn ui', label: 'Radix UI' },
+                { src: '/svg/chakra-ui.svg', alt: 'chakra ui', label: 'Chakra UI' },
+                { src: '/svg/HTML5.svg', alt: 'HTML5', label: 'HTML5' },
+                { src: '/svg/CSS3.svg', alt: 'CSS3', label: 'CSS3' },
+                { src: '/svg/javaScript.svg', alt: 'javaScript', label: 'JavaScript' },
+                { src: '/svg/git.svg', alt: 'git', label: 'Git' },
+                { src: '/svg/bash.svg', alt: 'bash', label: 'Bash' },
+                { src: '/svg/vscode.svg', alt: 'vscode', label: 'Vscode' },
+                { src: '/svg/figma.svg', alt: 'figma', label: 'Figma' },
+                { src: '/svg/sass.svg', alt: 'sass', label: 'Sass' },
+                { src: '/svg/wordpress.svg', alt: 'wordpress', label: 'WordPress' },
+                { src: '/svg/illustrator.svg', alt: 'illustrator', label: 'Illustrator' },
+                { src: '/svg/react.svg', alt: 'react', label: 'React' },
+                { src: '/svg/next.svg', alt: 'next', label: 'Next' },
+                { src: '/svg/typeScript.svg', alt: 'typeScript', label: 'TypeScript' },
+                { src: '/svg/contentful_logo.svg', alt: 'contentful', label: 'Contentful' },
+                { src: '/svg/tailwindcss.svg', alt: 'tailwindcss', label: 'Tailwindcss' },
+                { src: '/svg/vercel.svg', alt: 'vercel', label: 'Vercel' },
+                { src: '/svg/nodejs.svg', alt: 'nodejs', label: 'Nodejs' },
+                { src: '/svg/shadcn-ui.svg', alt: 'shadcn ui', label: 'Shadcn UI' },
+                { src: '/svg/storybook.svg', alt: 'storybook', label: 'Storybook' },
+                { src: '/svg/radix-ui_light.svg', alt: 'shadcn ui', label: 'Radix UI' },
+                { src: '/svg/chakra-ui.svg', alt: 'chakra ui', label: 'Chakra UI' },
+                { src: '/svg/HTML5.svg', alt: 'HTML5', label: 'HTML5' },
+                { src: '/svg/CSS3.svg', alt: 'CSS3', label: 'CSS3' },
+                { src: '/svg/javaScript.svg', alt: 'javaScript', label: 'JavaScript' },
+                { src: '/svg/git.svg', alt: 'git', label: 'Git' },
+                { src: '/svg/bash.svg', alt: 'bash', label: 'Bash' },
+                { src: '/svg/vscode.svg', alt: 'vscode', label: 'Vscode' },
+                { src: '/svg/figma.svg', alt: 'figma', label: 'Figma' },
+                { src: '/svg/sass.svg', alt: 'sass', label: 'Sass' },
+                { src: '/svg/wordpress.svg', alt: 'wordpress', label: 'WordPress' },
+                { src: '/svg/illustrator.svg', alt: 'illustrator', label: 'Illustrator' },
               ].map(({ src, alt, label }, i) => (
                 <div
                   key={src + i}
@@ -233,9 +226,7 @@ export default function Home() {
                     height={30}
                     loading="lazy"
                   />
-                  <span className="text-lg font-medium text-[var(--white-icon)]">
-                    {label}
-                  </span>
+                  <span className="text-lg font-medium text-[var(--white-icon)]">{label}</span>
                 </div>
               ))}
               {/* Skill icons end */}
@@ -248,13 +239,16 @@ export default function Home() {
                 So, what's my story?
               </h2>
               <p className="text-md md:text-xl text-[var(--white-icon)] mb-6">
-                I craft accessible, pixel-perfect web experiences with a focus on seamless UI/UX integration.
+                I craft accessible, pixel-perfect web experiences with a focus on seamless UI/UX
+                integration.
               </p>
               <p className="text-md md:text-xl text-[var(--white-icon)] mb-6">
-                My love for the web started back in 2007 with custom Neopets pages and Myspace layouts — and it’s been full-speed coding ever since.
+                My love for the web started back in 2007 with custom Neopets pages and Myspace
+                layouts — and it’s been full-speed coding ever since.
               </p>
               <p className="text-md md:text-xl text-[var(--white-icon)] mb-6">
-                Recently, I've been diving into the world of prompt engineering—experimenting with ways to make AI interactions more intuitive, creative, and impactful.
+                Recently, I've been diving into the world of prompt engineering—experimenting with
+                ways to make AI interactions more intuitive, creative, and impactful.
               </p>
               <p className="text-md md:text-xl text-[var(--white-icon)] mb-6">
                 Curious about the professional milestones?
@@ -264,90 +258,105 @@ export default function Home() {
             {/* Image on the right */}
             <div className="w-full lg:w-2/5 mt-8 lg:mt-0 flex justify-center lg:justify-end">
               <div className="w-full p-6 border-white/30 border border-1 backdrop-blur-xl rounded-2xl shadow-sm backdrop-blur-xl bg-white/10">
-              <h2 className="flex text-sm font-semibold text-zinc-900 dark:text-zinc-100">
-                <svg viewBox="0 0 24 24" fill="none" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true" className="h-6 w-6 flex-none">
-                <path d="M2.75 9.75a3 3 0 0 1 3-3h12.5a3 3 0 0 1 3 3v8.5a3 3 0 0 1-3 3H5.75a3 3 0 0 1-3-3v-8.5Z" className="fill-zinc-100 stroke-zinc-400 dark:fill-zinc-100/10 dark:stroke-zinc-500"></path>
-                <path d="M3 14.25h6.249c.484 0 .952-.002 1.316.319l.777.682a.996.996 0 0 0 1.316 0l.777-.682c.364-.32.832-.319 1.316-.319H21M8.75 6.5V4.75a2 2 0 0 1 2-2h2.5a2 2 0 0 1 2 2V6.5" className="stroke-zinc-400 dark:stroke-zinc-500"></path>
-                </svg>
-                <span className="ml-3">Work</span>
-              </h2>
-              <ol className="mt-6 space-y-4">
-                {[
-                {
-                  company: "Workhuman",
-                  logo: "/svg/wh_logo.svg",
-                  role: "Senior Web Developer",
-                  dateFrom: "2020",
-                  dateTo: "Present",
-                  imageClasses: "p-[2px] mr-[-1px]",
-                },
-                {
-                  company: "Membersfirst",
-                  logo: "/svg/mf_logo.svg",
-                  role: "Front-End Web Developer",
-                  dateFrom: "2015",
-                  dateTo: "2020",
-                  imageClasses: "px-[2px] pb-[2px]",
-                },
-                {
-                  company: "MWRTA",
-                  logo: "/svg/MWRTA_logo.svg",
-                  role: "Web & Administrative Assistant",
-                  dateFrom: "2013",
-                  dateTo: "2015",
-                  imageClasses: "",
-                },
-                {
-                  company: "Wellesley College",
-                  logo: "/svg/wellesleycollegelogo.svg",
-                  role: "Web Assistant",
-                  dateFrom: "2011",
-                  dateTo: "2012",
-                  imageClasses: "bg-[#0142a4] px-1 pt-[1px] rounded-full",
-                },
-                ].map((job, idx) => (
-                <li className="flex gap-4" key={job.company + idx}>
-                  <div className="relative mt-1 flex h-10 w-10 flex-none items-center justify-center rounded-full shadow-md ring-1 shadow-zinc-800/5 ring-zinc-900/5 dark:border dark:border-white/10 dark:bg-white/10 dark:ring-0">
-                  <img
-                    alt=""
-                    loading="lazy"
-                    decoding="async"
-                    data-nimg="1"
-                    className={cn('h-7 w-7', job.imageClasses)}
-                    src={job.logo}
-                    style={{ color: "transparent" }}
-                  />
-                  </div>
-                  <dl className="flex flex-auto flex-wrap gap-x-2">
-                  <dt className="sr-only">Company</dt>
-                  <dd className="w-full flex-none text-sm font-medium text-zinc-900 dark:text-zinc-100">{job.company}</dd>
-                  <dt className="sr-only">Role</dt>
-                  <dd className="text-xs text-zinc-500 dark:text-zinc-400">{job.role}</dd>
-                  <dt className="sr-only">Date</dt>
-                  <dd className="ml-auto text-xs text-zinc-400 dark:text-zinc-500" aria-label={`${job.dateFrom} until ${job.dateTo}`}>
-                    <time dateTime={job.dateFrom}>{job.dateFrom}</time> <span aria-hidden="true">—</span> <time dateTime={job.dateTo}>{job.dateTo}</time>
-                  </dd>
-                  </dl>
-                </li>
-                ))}
-              </ol>
+                <h2 className="flex text-sm font-semibold text-zinc-900 dark:text-zinc-100">
+                  <svg
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    strokeWidth="1.5"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    aria-hidden="true"
+                    className="h-6 w-6 flex-none"
+                  >
+                    <path
+                      d="M2.75 9.75a3 3 0 0 1 3-3h12.5a3 3 0 0 1 3 3v8.5a3 3 0 0 1-3 3H5.75a3 3 0 0 1-3-3v-8.5Z"
+                      className="fill-zinc-100 stroke-zinc-400 dark:fill-zinc-100/10 dark:stroke-zinc-500"
+                    ></path>
+                    <path
+                      d="M3 14.25h6.249c.484 0 .952-.002 1.316.319l.777.682a.996.996 0 0 0 1.316 0l.777-.682c.364-.32.832-.319 1.316-.319H21M8.75 6.5V4.75a2 2 0 0 1 2-2h2.5a2 2 0 0 1 2 2V6.5"
+                      className="stroke-zinc-400 dark:stroke-zinc-500"
+                    ></path>
+                  </svg>
+                  <span className="ml-3">Work</span>
+                </h2>
+                <ol className="mt-6 space-y-4">
+                  {[
+                    {
+                      company: 'Workhuman',
+                      logo: '/svg/wh_logo.svg',
+                      role: 'Senior Web Developer',
+                      dateFrom: '2020',
+                      dateTo: 'Present',
+                      imageClasses: 'p-[2px] mr-[-1px]',
+                    },
+                    {
+                      company: 'Membersfirst',
+                      logo: '/svg/mf_logo.svg',
+                      role: 'Front-End Web Developer',
+                      dateFrom: '2015',
+                      dateTo: '2020',
+                      imageClasses: 'px-[2px] pb-[2px]',
+                    },
+                    {
+                      company: 'MWRTA',
+                      logo: '/svg/MWRTA_logo.svg',
+                      role: 'Web & Administrative Assistant',
+                      dateFrom: '2013',
+                      dateTo: '2015',
+                      imageClasses: '',
+                    },
+                    {
+                      company: 'Wellesley College',
+                      logo: '/svg/wellesleycollegelogo.svg',
+                      role: 'Web Assistant',
+                      dateFrom: '2011',
+                      dateTo: '2012',
+                      imageClasses: 'bg-[#0142a4] px-1 pt-[1px] rounded-full',
+                    },
+                  ].map((job, idx) => (
+                    <li className="flex gap-4" key={job.company + idx}>
+                      <div className="relative mt-1 flex h-10 w-10 flex-none items-center justify-center rounded-full shadow-md ring-1 shadow-zinc-800/5 ring-zinc-900/5 dark:border dark:border-white/10 dark:bg-white/10 dark:ring-0">
+                        <img
+                          alt=""
+                          loading="lazy"
+                          decoding="async"
+                          data-nimg="1"
+                          className={cn('h-7 w-7', job.imageClasses)}
+                          src={job.logo}
+                          style={{ color: 'transparent' }}
+                        />
+                      </div>
+                      <dl className="flex flex-auto flex-wrap gap-x-2">
+                        <dt className="sr-only">Company</dt>
+                        <dd className="w-full flex-none text-sm font-medium text-zinc-900 dark:text-zinc-100">
+                          {job.company}
+                        </dd>
+                        <dt className="sr-only">Role</dt>
+                        <dd className="text-xs text-zinc-500 dark:text-zinc-400">{job.role}</dd>
+                        <dt className="sr-only">Date</dt>
+                        <dd
+                          className="ml-auto text-xs text-zinc-400 dark:text-zinc-500"
+                          aria-label={`${job.dateFrom} until ${job.dateTo}`}
+                        >
+                          <time dateTime={job.dateFrom}>{job.dateFrom}</time>{' '}
+                          <span aria-hidden="true">—</span>{' '}
+                          <time dateTime={job.dateTo}>{job.dateTo}</time>
+                        </dd>
+                      </dl>
+                    </li>
+                  ))}
+                </ol>
                 <TooltipProvider>
                   <Tooltip>
                     <TooltipTrigger asChild>
-                      <Button
-                        className="mt-6 w-full"
-                        variant="outline"
-                        size="lg"
-                      >
+                      <Button className="mt-6 w-full" variant="outline" size="lg">
                         <span className="flex items-center gap-2">
                           Download CV
                           <ArrowRight className="h-4 w-4" />
                         </span>
                       </Button>
                     </TooltipTrigger>
-                    <TooltipContent>
-                      Coming soon
-                    </TooltipContent>
+                    <TooltipContent>Coming soon</TooltipContent>
                   </Tooltip>
                 </TooltipProvider>
               </div>
@@ -363,24 +372,22 @@ export default function Home() {
                 data-nimg="1"
                 className={cn('mb-8 w-full h-auto', 'max-w-[200px] md:max-w-[250px]')}
                 src={'/svg/wh_logo-long.svg'}
-                style={{ color: "transparent" }}
+                style={{ color: 'transparent' }}
               />
               <h2 className="sr-only text-3xl md:text-4xl font-semibold mb-8 text-[var(--white)]">
                 Workhuman
               </h2>
               <p className="text-md md:text-xl text-[var(--white-icon)] mb-4">
-                At Workhuman, I lead front-end initiatives for global recognition platforms, collaborating with cross-functional teams to deliver accessible, scalable, and delightful user experiences.
+                At Workhuman, I lead front-end initiatives for global recognition platforms,
+                collaborating with cross-functional teams to deliver accessible, scalable, and
+                delightful user experiences.
               </p>
               <p className="text-md md:text-xl text-[var(--white-icon)] mb-0">
-                 My work spans from building robust design systems to optimizing performance and accessibility for millions of users worldwide.
+                My work spans from building robust design systems to optimizing performance and
+                accessibility for millions of users worldwide.
               </p>
             </div>
-            <CardSwap
-              cardDistance={160}
-              verticalDistance={100}
-              delay={3000}
-              pauseOnHover={false}
-            >
+            <CardSwap cardDistance={160} verticalDistance={100} delay={3000} pauseOnHover={false}>
               <Card>
                 <p className={'px-3 py-2'}>Human Intelligence</p>
               </Card>
@@ -396,8 +403,6 @@ export default function Home() {
             </CardSwap>
           </div>
 
-
-
           <div className="border-white/30 border border-1 backdrop-blur-xl rounded-2xl shadow-sm backdrop-blur-xl bg-white/10 overflow-hidden relative flex flex-col lg:flex-row gap-8 md:gap-18 items-center p-8 min-h-[450px]">
             <div className="w-full lg:w-2/5">
               <img
@@ -407,13 +412,15 @@ export default function Home() {
                 data-nimg="1"
                 className={cn('mb-8 w-full h-auto', 'max-w-[200px] md:max-w-[250px]')}
                 src={'/svg/mf-logo-white.svg'}
-                style={{ color: "transparent" }}
+                style={{ color: 'transparent' }}
               />
               <h2 className="sr-only text-3xl md:text-4xl font-semibold mb-8 text-[var(--white)]">
                 Membersfirst
               </h2>
               <p className="text-md md:text-xl text-[var(--white-icon)] mb-4">
-                At Membersfirst, I played a pivotal role in developing and maintaining award-winning community websites for country and golf clubs, focusing on user-centric design and accessibility.
+                At Membersfirst, I played a pivotal role in developing and maintaining award-winning
+                community websites for country and golf clubs, focusing on user-centric design and
+                accessibility.
               </p>
             </div>
             <CardSwap
@@ -423,73 +430,72 @@ export default function Home() {
               pauseOnHover={false}
               // classes="left-0"
             >
-                <Card>
+              <Card>
                 <div className="px-3 py-2">
                   <div>Club at Ibis</div>
                   <div className="text-xs text-[var(--white-icon)] mt-1">
-                  Best In Class (Lifestyle) – Interactive Media Awards
+                    Best In Class (Lifestyle) – Interactive Media Awards
                   </div>
                 </div>
-                </Card>
-                <Card>
+              </Card>
+              <Card>
                 <div className="px-3 py-2">
                   <div>Addison Reserve CC</div>
                   <div className="text-xs text-[var(--white-icon)] mt-1">
-                  Best In Class (Lifestyle) – Interactive Media Awards
+                    Best In Class (Lifestyle) – Interactive Media Awards
                   </div>
                 </div>
-                </Card>
-                <Card>
+              </Card>
+              <Card>
                 <div className="px-3 py-2">
                   <div>The Club at Renaissance</div>
                   <div className="text-xs text-[var(--white-icon)] mt-1">
-                  Best In Class (Lifestyle) – Interactive Media Awards
+                    Best In Class (Lifestyle) – Interactive Media Awards
                   </div>
                 </div>
-                </Card>
-                <Card>
+              </Card>
+              <Card>
                 <div className="px-3 py-2">
                   <div>Steel Club</div>
                   <div className="text-xs text-[var(--white-icon)] mt-1">
-                  Best In Class (Lifestyle) – Interactive Media Awards
+                    Best In Class (Lifestyle) – Interactive Media Awards
                   </div>
                 </div>
-                </Card>
-                <Card>
+              </Card>
+              <Card>
                 <div className="px-3 py-2">
                   <div>Colleton River Club</div>
                   <div className="text-xs text-[var(--white-icon)] mt-1">
-                  Best In Class (Lifestyle) – Interactive Media Awards
+                    Best In Class (Lifestyle) – Interactive Media Awards
                   </div>
                 </div>
-                </Card>
-                <Card>
+              </Card>
+              <Card>
                 <div className="px-3 py-2">
                   <div>Manchester Country Club</div>
                   <div className="text-xs text-[var(--white-icon)] mt-1">
-                  Best In Class (Lifestyle) – Interactive Media Awards
+                    Best In Class (Lifestyle) – Interactive Media Awards
                   </div>
                 </div>
-                </Card>
-                <Card>
+              </Card>
+              <Card>
                 <div className="px-3 py-2">
                   <div>The Silverleaf Club</div>
                   <div className="text-xs text-[var(--white-icon)] mt-1">
-                  Best In Class (Lifestyle) – Interactive Media Awards
+                    Best In Class (Lifestyle) – Interactive Media Awards
                   </div>
                 </div>
-                </Card>
-                <Card>
+              </Card>
+              <Card>
                 <div className="px-3 py-2">
                   <div>Local 02045</div>
                   <div className="text-xs text-[var(--white-icon)] mt-1">
-                  Outstanding Achievement (Restaurant) – Interactive Media Awards
+                    Outstanding Achievement (Restaurant) – Interactive Media Awards
                   </div>
                 </div>
-                </Card>
+              </Card>
             </CardSwap>
           </div>
-
         </div>
       </div>
     </>

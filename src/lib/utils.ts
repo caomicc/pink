@@ -9,7 +9,7 @@ export function resolveTailwindColor(tailwindColor: string) {
   if (typeof window === 'undefined' || typeof document === 'undefined') {
     return { hex: '' };
   }
-  let styles = getComputedStyle(document.documentElement);
-  let hex = styles.getPropertyValue(tailwindColor);
+  const styles = getComputedStyle(document.documentElement);
+  const hex = styles.getPropertyValue(tailwindColor);
   return { hex };
 }
