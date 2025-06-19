@@ -41,7 +41,7 @@ export default function Home() {
                   title=""
                   handle="caomicc"
                   status="Online"
-                  contactText="Contact Me"
+                  // contactText="Say Hi!"
                   avatarUrl="https://avatars.githubusercontent.com/u/6108512?v=4"
                   backgroundPortraitUrl="/cammy.webp"
                   showUserInfo={true}
@@ -146,7 +146,7 @@ export default function Home() {
               </div>
             </div>
           </div>
-          <div className="relative overflow-x-hidden py-8 marquee-container">
+          <div className="relative overflow-x-hidden py-8 my-16 marquee-container">
             <div className="pointer-events-none absolute inset-y-0 left-0 w-32 bg-gradient-to-r from-[var(--background)] to-transparent z-20"></div>
             <div className="pointer-events-none absolute inset-y-0 right-0 w-32 bg-gradient-to-l from-[var(--background)] to-transparent z-20"></div>
             <div className="flex gap-12 md:gap-20 w-max marquee-content">
@@ -389,7 +389,7 @@ export default function Home() {
                 accessibility for millions of users worldwide.
               </p>
             </div>
-            <CardSwap cardDistance={160} verticalDistance={100} delay={3000} pauseOnHover={false}>
+            <CardSwap cardDistance={160} verticalDistance={100} delay={3000}>
               <Card>
                 <Image
                   src={'/sr.webp'}
