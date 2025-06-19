@@ -4,10 +4,12 @@ import Aurora from '@/components/ui/aurora';
 import ProfileCard from '@/components/ui/profile-card';
 import { Button } from '@/components/ui/button';
 import { ArrowRight } from 'lucide-react';
-import Link from 'next/link';
 import { cn, resolveTailwindColor } from '@/lib/utils';
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from '@/components/ui/tooltip';
 import CardSwap, { Card } from '@/components/ui/card-swap';
+
+import Image from 'next/image';
+
 
 const gradientColors = [
   resolveTailwindColor('--azure-500').hex,
@@ -389,16 +391,39 @@ export default function Home() {
             </div>
             <CardSwap cardDistance={160} verticalDistance={100} delay={3000} pauseOnHover={false}>
               <Card>
-                <p className={'px-3 py-2'}>Human Intelligence</p>
+                <Image
+                  src={'/sr.webp'}
+                  alt="Workhuman Social Recognition Platform"
+                  fill
+                />
               </Card>
               <Card>
-                <p className={'px-3 py-2'}>Social Recognition</p>
+                <Image
+                  src={'/plat.webp'}
+                  alt="Workhuman platform page"
+                  fill
+                />
               </Card>
               <Card>
-                <p className={'px-3 py-2'}>Platform Page</p>
+                <Image
+                  src={'/iq.webp'}
+                  alt="Workhuman iQ product"
+                  fill
+                />
               </Card>
               <Card>
-                <p className={'px-3 py-2'}>Demo Page</p>
+                <Image
+                  src={'/homepage.webp'}
+                  alt="Workhuman homepage"
+                  fill
+                />
+              </Card>
+              <Card>
+                <Image
+                  src={'/fr.webp'}
+                  alt="Workhuman featured resources"
+                  fill
+                />
               </Card>
             </CardSwap>
           </div>
