@@ -32,10 +32,10 @@ export default function Home() {
         </div>
       </div>
       <div className="text-[var(--white)] mt-0 md:mt-0" id="home">
-        <div className="max-w-5xl mx-auto space-y-8 px-4 sm:px-0">
+        <div className="max-w-5xl mx-auto space-y-8 px-4 sm:px-8">
           <div className="text-left space-y-4">
-            <div className="flex flex-col-reverse lg:flex-row lg:items-center space-y-4 lg:space-y-0 lg:space-x-8 gap-8 md:gap-18">
-              <div className={'lg:w-1/3 mx-auto lg:mx-0'}>
+            <div className="flex flex-col-reverse sm:flex-row lg:items-center space-y-4 lg:space-y-0 lg:space-x-8 gap-8 lg:gap-18">
+              <div className={'w-full sm:w-1/3 mx-auto lg:mx-0'}>
                 <ProfileCard
                   name=""
                   title=""
@@ -49,12 +49,12 @@ export default function Home() {
                   onContactClick={() => console.log('Contact clicked')}
                 />
               </div>
-              <div className="lg:w-2/3 w-full flex flex-col justify-center space-y-4">
-                <h1 className="text-[var(--white)] text-5xl md:text-6xl font-medium text-pretty leading-none">
+              <div className="sm:w-2/3 w-full flex flex-col justify-center space-y-4">
+                <h1 className="text-[var(--white)] text-4xl lg:text-6xl font-medium text-pretty leading-none">
                   Senior Web Developer
                 </h1>
-                <p className="text-md md:text-2xl text-[var(--white-icon)]">Hi! I'm Cammy.</p>
-                <p className="text-md md:text-xl text-[var(--white-icon)]">
+                <p className="text-lg lg:text-2xl text-[var(--white-icon)]">Hi! I'm Cammy.</p>
+                <p className="text-md lg:text-xl text-[var(--white-icon)]">
                   I have been described as a determined, adept, and "pixel-perfect". I strive to
                   make the integration between UI/UX and code seamless while keeping all audiences
                   in mind.
@@ -234,11 +234,11 @@ export default function Home() {
               {/* Skill icons end */}
             </div>
           </div>
-          <div className="flex flex-col lg:flex-row gap-8 md:gap-18 items-center">
+          <div className="flex flex-col md:flex-row gap-8 md:gap-18 items-center mb-4 sm:mb-8">
             {/* Accordion Content */}
             <div className="w-full lg:w-3/5">
               <h2 className="text-3xl md:text-4xl font-semibold mb-8 text-[var(--white)]">
-                So, what's my story?
+                So, what's up?
               </h2>
               <p className="text-md md:text-xl text-[var(--white-icon)] mb-6">
                 I craft accessible, pixel-perfect web experiences with a focus on seamless UI/UX
@@ -248,17 +248,17 @@ export default function Home() {
                 My love for the web started back in 2007 with custom Neopets pages and Myspace
                 layouts — and it’s been full-speed coding ever since.
               </p>
-              <p className="text-md md:text-xl text-[var(--white-icon)] mb-6">
+              <p className="text-md md:text-xl text-[var(--white-icon)] lg:mb-6">
                 Recently, I've been diving into the world of prompt engineering—experimenting with
                 ways to make AI interactions more intuitive, creative, and impactful.
               </p>
-              <p className="text-md md:text-xl text-[var(--white-icon)] mb-6">
+              {/* <p className="text-md md:text-xl text-[var(--white-icon)] mb-6">
                 Curious about the professional milestones?
-              </p>
+              </p> */}
             </div>
 
             {/* Image on the right */}
-            <div className="w-full lg:w-2/5 mt-8 lg:mt-0 flex justify-center lg:justify-end">
+            <div className="w-full lg:w-2/5 flex justify-center lg:justify-end">
               <div className="w-full p-6 border-white/30 border border-1 backdrop-blur-xl rounded-2xl shadow-sm backdrop-blur-xl bg-white/10">
                 <h2 className="flex text-sm font-semibold text-zinc-900 dark:text-zinc-100">
                   <svg
@@ -379,17 +379,21 @@ export default function Home() {
               <h2 className="sr-only text-3xl md:text-4xl font-semibold mb-8 text-[var(--white)]">
                 Workhuman
               </h2>
-              <p className="text-md md:text-xl text-[var(--white-icon)] mb-4">
+              <p className="text-md md:text-lg text-[var(--white-icon)] mb-4">
                 At Workhuman, I lead front-end initiatives for global recognition platforms,
                 collaborating with cross-functional teams to deliver accessible, scalable, and
                 delightful user experiences.
               </p>
-              <p className="text-md md:text-xl text-[var(--white-icon)] mb-0">
+              <p className="text-md md:text-lg text-[var(--white-icon)] mb-0">
                 My work spans from building robust design systems to optimizing performance and
                 accessibility for millions of users worldwide.
               </p>
             </div>
-            <CardSwap cardDistance={160} verticalDistance={100} delay={3000}>
+            <CardSwap
+              classes='md:scale-[1.1] lg:scale-[1] lg:absolute lg:bottom-0 lg:right-0 transform origin-bottom-right perspective-[900px] overflow-visible translate-x-20 translate-y-24 md:translate-y-16'
+              cardDistance={160}
+              verticalDistance={100}
+              delay={3000}>
               <Card>
                 <Image
                   src={'/sr.webp'}

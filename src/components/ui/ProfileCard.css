@@ -446,6 +446,7 @@
 /* Responsive Design */
 @media (max-width: 768px) {
   .pc-card {
+    margin: 0 auto;
     /* height: 70svh; */
     /* max-height: 450px; */
   }

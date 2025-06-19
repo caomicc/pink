@@ -93,7 +93,6 @@ const CardSwap: React.FC<CardSwapProps> = ({
   cardDistance = 60,
   verticalDistance = 70,
   delay = 5000,
-  pauseOnHover = false,
   onCardClick,
   skewAmount = 6,
   easing = 'elastic',
@@ -238,7 +237,7 @@ const CardSwap: React.FC<CardSwapProps> = ({
     <div
       ref={container}
       className={cn(
-        'absolute bottom-0 right-0 transform translate-x-[5%] translate-y-[20%] origin-bottom-right perspective-[900px] overflow-visible max-[768px]:translate-x-[25%] max-[768px]:translate-y-[25%] max-[768px]:scale-[0.75] max-[480px]:translate-x-[25%] max-[480px]:translate-y-[25%] max-[480px]:scale-[0.55]',
+        '',
         classes,
       )}
       style={{ width, height }}
@@ -246,9 +245,23 @@ const CardSwap: React.FC<CardSwapProps> = ({
       {rendered}
       <button
         onClick={togglePlayPause}
-        className="absolute top-2 right-2 bg-white text-black px-4 py-2 rounded z-100"
-      >
-        {isPlaying ? 'Pause' : 'Play'}
+        type="button"
+        className="absolute bottom-20 right-37 lg:right-24 z-100 text-[var(--white-icon)] hover:text-white transition duration-300 ease-in-out p-2 hover:bg-[var(--white-icon-tr)] border-white/30 border border-1 backdrop-blur-xl rounded-lg shadow-sm backdrop-blur-xl bg-black/20"
+        // className="absolute bottom-20 right-4 z-100 text-white bg-pink-700 hover:bg-pink-800 focus:ring-4 focus:outline-none focus:ring-pink-300 font-medium rounded-full text-sm p-2.5 text-center inline-flex items-center dark:bg-pink-600 dark:hover:bg-pink-700 dark:focus:ring-pink-900"
+        >
+        {isPlaying ? (
+          // Pause icon (two vertical bars)
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 20 20">
+            <rect x="4" y="4" width="4" height="12" rx="1" />
+            <rect x="12" y="4" width="4" height="12" rx="1" />
+          </svg>
+        ) : (
+          // Play icon (triangle)
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 20 20">
+            <polygon points="6,4 16,10 6,16" />
+          </svg>
+        )}
+        <span className="sr-only">{isPlaying ? 'Pause' : 'Play'}</span>
       </button>
     </div>
   );
