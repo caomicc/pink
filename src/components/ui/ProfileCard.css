@@ -271,7 +271,7 @@
   position: absolute;
   left: 50%;
   transform: translateX(-50%) scale(1);
-  top: 0;
+  bottom: 0;
   opacity: calc(1.75 - var(--pointer-from-center));
 }
 

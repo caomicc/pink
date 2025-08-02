@@ -2,10 +2,10 @@
 
 import Aurora from '@/components/ui/aurora';
 import ProfileCard from '@/components/ui/profile-card';
-import { Button } from '@/components/ui/button';
-import { ArrowRight } from 'lucide-react';
+// import { Button } from '@/components/ui/button';
+// import { ArrowRight } from 'lucide-react';
 import { cn, resolveTailwindColor } from '@/lib/utils';
-import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from '@/components/ui/tooltip';
+// import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from '@/components/ui/tooltip';
 import CardSwap, { Card } from '@/components/ui/card-swap';
 
 import Image from 'next/image';
@@ -43,7 +43,7 @@ export default function Home() {
                   status="Online"
                   // contactText="Say Hi!"
                   avatarUrl="https://avatars.githubusercontent.com/u/6108512?v=4"
-                  backgroundPortraitUrl="/cammy.webp"
+                  backgroundPortraitUrl="https://scontent-bos5-1.xx.fbcdn.net/v/t51.75761-15/463866573_18465253180045657_3597438779028451330_n.jpg?_nc_cat=103&ccb=1-7&_nc_sid=127cfc&_nc_ohc=KJ66CTA8jogQ7kNvwEExxWJ&_nc_oc=AdkoPiE3mpPkfSBiku18q98lsTDle_Rd11d3D3PuNRPJMnFMF3Ix8rfIicU9iWIp6PM&_nc_zt=23&_nc_ht=scontent-bos5-1.xx&_nc_gid=98G1oFZuJ4FmjJhs1GoJDA&oh=00_AfRwTIdSF5osUNYhJ2yIJa-GC9matBpG41H2lXbIfDFOGw&oe=689459D7"
                   showUserInfo={true}
                   enableTilt={false}
                   onContactClick={() => console.log('Contact clicked')}
@@ -348,7 +348,7 @@ export default function Home() {
                     </li>
                   ))}
                 </ol>
-                <TooltipProvider>
+                {/* <TooltipProvider>
                   <Tooltip>
                     <TooltipTrigger asChild>
                       <Button className="mt-6 w-full" variant="outline" size="lg">
@@ -360,7 +360,7 @@ export default function Home() {
                     </TooltipTrigger>
                     <TooltipContent>Coming soon</TooltipContent>
                   </Tooltip>
-                </TooltipProvider>
+                </TooltipProvider> */}
               </div>
             </div>
           </div>
