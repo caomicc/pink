@@ -1,4 +1,6 @@
-import React from "react";
+import React, {useRef} from "react";
+import { MenuItem, MenuItemGroup } from "./base";
+import { useClickOutside } from "@/hooks";
 
 interface AppleMenuProps {
   logout: () => void;
@@ -22,7 +24,7 @@ export default function AppleMenu({
   useClickOutside(ref, toggleAppleMenu, [btnRef]);
 
   return (
-    <div className="menu-box left-2 w-56" ref={ref}>
+    <div className="fixed top-8.5 text-c-black bg-c-200/90 border border-menu rounded-lg shadow-menu left-2 w-56" ref={ref}>
       <MenuItemGroup>
         <MenuItem>About This Mac</MenuItem>
       </MenuItemGroup>

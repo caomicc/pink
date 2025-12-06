@@ -47,12 +47,12 @@ export default function Launchpad({ show, toggleLaunchpad }: LaunchpadProps) {
           <div
             className={`${
               focus ? "w-6 duration-200" : "w-26 delay-250"
-            } hstack justify-end`}
+            } flex items-center justify-end`}
           >
             <span className="i-bx:search ml-1 text-white" />
           </div>
           <input
-            className="flex-1 min-w-0 no-outline bg-transparent px-1 text-sm text-white"
+            className="flex-1 min-w-0 outline-none focus:outline-none bg-transparent px-1 text-sm text-white"
             placeholder={placeholderText}
             value={searchText}
             onChange={(e) => setSearchText(e.target.value)}

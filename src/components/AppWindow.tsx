@@ -78,14 +78,14 @@ const TrafficLights = ({ id, close, aspectRatio, max, setMax, setMin }: TrafficP
   return (
     <div className="traffic-lights flex flex-row absolute left-0 space-x-2 pl-2 mt-1.5">
       <button
-        className="window-btn bg-red-500 dark:bg-red-400"
+        className="size-3 text-black rounded-full flex-center no-outline bg-red-500 dark:bg-red-400"
         onClick={closeWindow}
         onTouchEnd={closeWindow}
       >
         <span className="icon i-gg:close text-[9px]" />
       </button>
       <button
-        className={`window-btn ${max ? "bg-c-400" : "bg-yellow-500 dark:bg-yellow-400"}`}
+        className={`size-3 text-black rounded-full flex-center no-outline ${max ? "bg-c-400" : "bg-yellow-500 dark:bg-yellow-400"}`}
         onClick={() => setMin(id)}
         onTouchEnd={() => setMin(id)}
         disabled={max}
@@ -93,7 +93,7 @@ const TrafficLights = ({ id, close, aspectRatio, max, setMax, setMin }: TrafficP
         <span className={`icon i-fe:minus text-[10px] ${max ? "invisible" : ""}`} />
       </button>
       <button
-        className={`window-btn ${
+        className={`size-3 text-black rounded-full flex-center no-outline ${
           disableMax ? "bg-c-400" : "bg-green-500 dark:bg-green-400"
         }`}
         onClick={() => setMax(id)}

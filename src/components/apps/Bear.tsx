@@ -63,7 +63,7 @@ const Highlighter = (dark: boolean): any => {
 const Sidebar = ({ cur, setMidBar }: SidebarProps) => {
   return (
     <div className="text-white">
-      <div className="h-12 pr-3 hstack space-x-3 justify-end">
+      <div className="h-12 pr-3 flex items-center space-x-3 justify-end">
         <span className="i-ic:baseline-cloud-off text-xl" />
         <span className="i-akar-icons:settings-vertical text-xl" />
       </div>
@@ -71,7 +71,7 @@ const Sidebar = ({ cur, setMidBar }: SidebarProps) => {
         {bear.map((item, index) => (
           <li
             key={`bear-sidebar-${item.id}`}
-            className={`pl-6 h-8 hstack cursor-default ${
+            className={`pl-6 h-8 flex items-center cursor-default ${
               cur === index ? "bg-red-500" : "bg-transparent"
             } ${cur === index ? "" : "hover:bg-gray-600"}`}
             onClick={() => setMidBar(item.md, index)}
@@ -98,8 +98,8 @@ const Middlebar = ({ items, cur, setContent }: MiddlebarProps) => {
           } hover:bg-white dark:hover:bg-gray-900`}
           onClick={() => setContent(item.id, item.file, index)}
         >
-          <div className="h-8 mt-3 hstack">
-            <div className="-mt-1 w-10 vstack text-c-500">
+          <div className="h-8 mt-3 flex items-center">
+            <div className="-mt-1 w-10 hstack flex-col text-c-500">
               <span className={item.icon} />
             </div>
             <span className="relative flex-1 font-bold text-gray-900 dark:text-gray-100">

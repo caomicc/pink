@@ -1,4 +1,5 @@
-import React from "react";
+import { useInterval } from "@/hooks";
+import React, {useState, useRef, useEffect, JSX} from "react";
 import { terminal } from "~/configs";
 import type { TerminalData } from "~/types";
 
@@ -339,8 +340,8 @@ export default class Terminal extends React.Component<{}, TerminalState> {
 
   generateInputRow = (id: number) => {
     const newRow = (
-      <div key={`terminal-input-row-${id}`} flex>
-        <div className="w-max hstack space-x-1.5">
+      <div key={`terminal-input-row-${id}`} className="flex">
+        <div className="w-full flex items-center space-x-1.5">
           <span text-yellow-200>
             zou@macbook-pro <span text-green-300>{this.getCurDirName()}</span>
           </span>

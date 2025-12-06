@@ -219,13 +219,10 @@
     @apply flex items-center justify-center;
   }
   .hstack {
-    @apply flex items-center flex-row;
+    @apply flex flex-row items-center;
   }
   .vstack {
     @apply flex flex-col;
-  }
-  .no-outline {
-    @apply outline-none;
   }
 }
 

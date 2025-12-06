@@ -10,6 +10,9 @@ import AppleMenu from "./AppleMenu";
 import Battery from "./Battery";
 import WifiMenu from "./WifiMenu";
 import ControlCenterMenu from "./ControlCenterMenu";
+import { FaApple } from "react-icons/fa";
+import { MdWifi, MdWifiOff } from "react-icons/md";
+import { BsSearch } from "react-icons/bs";
 
 interface TopBarItemProps {
   hideOnMobile?: boolean;
@@ -30,7 +33,7 @@ const TopBarItem = forwardRef(
     return (
       <div
         ref={ref}
-        className={`hstack space-x-1 h-6 px-1 cursor-default rounded ${hide} ${bg} ${
+        className={`flex items-center space-x-1 h-6 px-1 cursor-default rounded ${hide} ${bg} ${
           props.className || ""
         }`}
         onClick={props.onClick}
@@ -173,18 +176,18 @@ const TopBar = (props: TopBarProps) => {
 
   return (
     <div
-      className={`w-full h-8 px-2 fixed top-0 hstack justify-between ${
+      className={`w-full h-8 px-2 fixed top-0 flex items-center justify-between ${
         props.hide ? "z-0" : "z-20"
       } text-sm text-white bg-gray-700/10 backdrop-blur-2xl shadow transition`}
     >
-      <div className="hstack space-x-1">
+      <div className="flex items-center space-x-1">
         <TopBarItem
           className="px-2"
           forceHover={state.showAppleMenu}
           onClick={toggleAppleMenu}
           ref={appleBtnRef}
         >
-          <span className="i-ri:apple-fill text-base" />
+          <FaApple className="text-base" />
         </TopBarItem>
         <TopBarItem
           className="font-semibold px-2"
@@ -208,7 +211,7 @@ const TopBar = (props: TopBarProps) => {
         />
       )}
 
-      <div className="hstack flex-row justify-end space-x-2">
+      <div className="flex items-center flex-row justify-end space-x-2">
         <TopBarItem hideOnMobile={true}>
           <Battery />
         </TopBarItem>
@@ -219,13 +222,13 @@ const TopBar = (props: TopBarProps) => {
           ref={wifiBtnRef}
         >
           {wifi ? (
-            <span className="i-material-symbols:wifi text-lg" />
+            <MdWifi className="text-lg" />
           ) : (
-            <span className="i-material-symbols:wifi-off text-lg" />
+            <MdWifiOff className="text-lg" />
           )}
         </TopBarItem>
         <TopBarItem ref={spotlightBtnRef} onClick={props.toggleSpotlight}>
-          <span className="i-bx:search text-[17px]" />
+          <BsSearch className="text-[17px]" />
         </TopBarItem>
         <TopBarItem
           forceHover={state.showControlCenter}

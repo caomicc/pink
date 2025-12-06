@@ -31,7 +31,7 @@ const SidebarItem = ({ date, active }: SidebarItemProps) => {
 
   return (
     <div
-      className={`hstack h-16 px-2.5 rounded-md space-x-2 ${active && "bg-[#508041]"}`}
+      className={`flex items-center h-16 px-2.5 rounded-md space-x-2 ${active && "bg-[#508041]"}`}
       onMouseEnter={() => setHover(true)}
       onMouseLeave={() => setHover(false)}
     >
@@ -43,7 +43,7 @@ const SidebarItem = ({ date, active }: SidebarItemProps) => {
         <div className="font-medium leading-4 text-white text-sm">
           FaceTime Link
         </div>
-        <div className="hstack space-x-1 text-white/60">
+        <div className="flex items-center space-x-1 text-white/60">
           <span className="i-ion:videocam" />
           <span>FaceTime · {format(Number(date), "hh:mm:ss")}</span>
         </div>

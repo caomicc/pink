@@ -72,46 +72,46 @@ export default function ControlCenterMenu({
 
   return (
     <div
-      className="w-80 h-96 max-w-full shadow-menu p-2.5 text-c-black bg-c-100/70 fixed top-9.5 right-0 sm:right-1.5 border border-menu rounded-2xl grid grid-cols-4 grid-rows-5 gap-2"
+      className="w-80 h-96 max-w-full shadow-md shadow-black/25 dark:shadow-black/50 p-2.5 text-c-black bg-c-100/70 fixed top-9.5 right-0 sm:right-1.5 border border-gray-500/50 rounded-2xl grid grid-cols-4 grid-rows-5 gap-2"
       ref={controlCenterRef}
     >
-      <div className="cc-grid row-span-2 col-span-2 p-2 flex flex-col justify-around">
-        <div className="hstack space-x-2">
-          <div className={`${wifi ? "cc-btn" : "cc-btn-active"}`} onClick={toggleWIFI}>
+      <div className="bg-c-200/80 rounded-xl shadow-sm backdrop-blur-2xl row-span-2 col-span-2 p-2 flex flex-col justify-around">
+        <div className="flex items-center space-x-2">
+          <div className={`${wifi ? "flex-center rounded-full size-8 text-white bg-blue-500" : "flex-center rounded-full size-8 text-c-700 bg-gray-400/25 dark:bg-gray-300/25"}`} onClick={toggleWIFI}>
             <span className="i-material-symbols:wifi text-base" />
           </div>
           <div className="pt-0.5">
             <div className="font-medium leading-4">Wi-Fi</div>
-            <div className="cc-text">{wifi ? "Home" : "Off"}</div>
+            <div className="text-xs text-c-500">{wifi ? "Home" : "Off"}</div>
           </div>
         </div>
-        <div className="hstack space-x-2">
+        <div className="flex items-center space-x-2">
           <div
-            className={`${bluetooth ? "cc-btn" : "cc-btn-active"}`}
+            className={`${bluetooth ? "flex-center rounded-full size-8 text-white bg-blue-500" : "flex-center rounded-full size-8 text-c-700 bg-gray-400/25 dark:bg-gray-300/25"}`}
             onClick={toggleBluetooth}
           >
             <span className="i-charm:bluetooth text-base" />
           </div>
           <div className="pt-0.5">
             <div className="font-medium leading-4">Bluetooth</div>
-            <div className="cc-text">{bluetooth ? "On" : "Off"}</div>
+            <div className="text-xs text-c-500">{bluetooth ? "On" : "Off"}</div>
           </div>
         </div>
-        <div className="hstack space-x-2">
+        <div className="flex items-center space-x-2">
           <div
-            className={`${airdrop ? "cc-btn" : "cc-btn-active"}`}
+            className={`${airdrop ? "flex-center rounded-full size-8 text-white bg-blue-500" : "flex-center rounded-full size-8 text-c-700 bg-gray-400/25 dark:bg-gray-300/25"}`}
             onClick={toggleAirdrop}
           >
             <span className="i-material-symbols:rss-feed-rounded text-base" />
           </div>
           <div className="pt-0.5">
             <div className="font-medium leading-4">AirDrop</div>
-            <div className="cc-text">{airdrop ? "Contacts Only" : "Off"}</div>
+            <div className="text-xs text-c-500">{airdrop ? "Contacts Only" : "Off"}</div>
           </div>
         </div>
       </div>
-      <div className="cc-grid col-span-2 p-2 hstack space-x-3">
-        <div className={`${dark ? "cc-btn" : "cc-btn-active"}`} onClick={toggleDark}>
+      <div className="bg-c-200/80 rounded-xl shadow-sm backdrop-blur-2xl col-span-2 p-2 flex items-center space-x-3">
+        <div className={`${dark ? "flex-center rounded-full size-8 text-white bg-blue-500" : "flex-center rounded-full size-8 text-c-700 bg-gray-400/25 dark:bg-gray-300/25"}`} onClick={toggleDark}>
           {dark ? (
             <span className="i-ion:moon text-base" />
           ) : (
@@ -120,14 +120,14 @@ export default function ControlCenterMenu({
         </div>
         <div className="font-medium">{dark ? "Dark Mode" : "Light Mode"}</div>
       </div>
-      <div className="cc-grid flex-center flex-col">
+      <div className="bg-c-200/80 rounded-xl shadow-sm backdrop-blur-2xl flex-center flex-col">
         <span className="i-bi:brightness-alt-high text-xl" />
         <span className="text-xs text-center leading-3.5">
           Keyboard Brightness
         </span>
       </div>
       <div
-        className="cc-grid flex-center flex-col cursor-default"
+        className="bg-c-200/80 rounded-xl shadow-sm backdrop-blur-2xl flex-center flex-col cursor-default"
         onClick={() => toggleFullScreen(!fullscreen)}
       >
         {fullscreen ? (
@@ -139,19 +139,19 @@ export default function ControlCenterMenu({
           {fullscreen ? "Exit Fullscreen" : "Enter Fullscreen"}
         </span>
       </div>
-      <div className="cc-grid col-span-4 px-2.5 py-2 space-y-1 flex flex-col justify-around">
+      <div className="bg-c-200/80 rounded-xl shadow-sm backdrop-blur-2xl col-span-4 px-2.5 py-2 space-y-1 flex flex-col justify-around">
         <span className="font-medium ml-0.5">Display</span>
         <SliderComponent icon="i-ion:sunny" value={brightness} setValue={setBrightness} />
       </div>
-      <div className="cc-grid col-span-4 px-2.5 py-2 space-y-1 flex flex-col justify-around">
+      <div className="bg-c-200/80 rounded-xl shadow-sm backdrop-blur-2xl col-span-4 px-2.5 py-2 space-y-1 flex flex-col justify-around">
         <span className="font-medium ml-0.5">Sound</span>
         <SliderComponent icon="i-ion:volume-high" value={volume} setValue={setVolume} />
       </div>
-      <div className="cc-grid col-span-4 hstack space-x-2.5 py-2 pl-2 pr-4">
+      <div className="bg-c-200/80 rounded-xl shadow-sm backdrop-blur-2xl col-span-4 flex items-center space-x-2.5 py-2 pl-2 pr-4">
         <img className="w-12 rounded-lg" src={music.cover} alt="cover art" />
         <div className="flex-1">
           <div className="font-medium">{music.title}</div>
-          <div className="cc-text">{music.artist}</div>
+          <div className="text-xs text-c-500">{music.artist}</div>
         </div>
         {playing ? (
           <span className="i-bi:pause-fill text-2xl" onClick={() => toggleAudio(false)} />
