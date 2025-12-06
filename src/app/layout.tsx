@@ -65,33 +65,10 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className="dark">
+    <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased relative pt-10 lg:pt-20`}
+        className={`${geistSans.variable} ${geistMono.variable} antialiased relative`}
       >
-        {/* <div className="fixed left-1/2 -translate-x-1/2 z-[100] border-white/30 border border-1 rounded-full backdrop-blur-xl transition-all duration-500 ease-in-out top-6 bottom-auto bottom-0 scrolling bg-white/10">
-          <div className="container mx-auto flex justify-center items-center py-1 px-3">
-            <NavigationMenu>
-              <NavigationMenuList>
-                <NavigationMenuItem>
-                  <NavigationMenuLink asChild>
-                    <Link href="/">Home</Link>
-                  </NavigationMenuLink>
-                </NavigationMenuItem>
-                <NavigationMenuItem>
-                  <NavigationMenuLink asChild>
-                    <Link href="/project">Projects</Link>
-                  </NavigationMenuLink>
-                </NavigationMenuItem>
-                <NavigationMenuItem>
-                  <NavigationMenuLink asChild>
-                    <Link href="/toolbox">Toolbox</Link>
-                  </NavigationMenuLink>
-                </NavigationMenuItem>
-              </NavigationMenuList>
-            </NavigationMenu>
-          </div>
-        </div> */}
         {children}
         <div className="mx-4">
           <footer className="mt-16 max-w-5xl mx-auto">
