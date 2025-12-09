@@ -25,7 +25,7 @@ const MenuItemGroup = (props: MenuItemGroupProps) => {
   const border =
     props.border === false
       ? "pb-1"
-      : "after:(content-empty block pb-0 h-1.5 max-w-full mx-2 border-b border-c-400)";
+      : "relative px-1 pt-1 after:content-empty after:block after:pb-0 after:h-1.5 after:max-w-full after:mx-2 after:border-b after:border-c-400";
   return <ul className={`relative px-1 pt-1 ${border}`}>{props.children}</ul>;
 };
 

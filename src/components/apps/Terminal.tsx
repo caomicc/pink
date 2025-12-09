@@ -219,31 +219,31 @@ export default class Terminal extends React.Component<{}, TerminalState> {
     const help = (
       <ul className="list-disc ml-6 pb-1.5">
         <li>
-          <span text-red-400>cat {"<file>"}</span> - See the content of {"<file>"}
+          <span className="text-red-400">cat {"<file>"}</span> - See the content of {"<file>"}
         </li>
         <li>
-          <span text-red-400>cd {"<dir>"}</span> - Move into
+          <span className="text-red-400">cd {"<dir>"}</span> - Move into
           {" <dir>"}, "cd .." to move to the parent directory, "cd" or "cd ~" to return to
           root
         </li>
         <li>
-          <span text-red-400>ls</span> - See files and directories in the current
+          <span className="text-red-400">ls</span> - See files and directories in the current
           directory
         </li>
         <li>
-          <span text-red-400>clear</span> - Clear the screen
+          <span className="text-red-400">clear</span> - Clear the screen
         </li>
         <li>
-          <span text-red-400>help</span> - Display this help menu
+          <span className="text-red-400">help</span> - Display this help menu
         </li>
         <li>
-          <span text-red-400>rm -rf /</span> - :)
+          <span className="text-red-400">rm -rf /</span> - :)
         </li>
         <li>
-          press <span text-red-400>up arrow / down arrow</span> - Select history commands
+          press <span className="text-red-400">up arrow / down arrow</span> - Select history commands
         </li>
         <li>
-          press <span text-red-400>tab</span> - Auto complete
+          press <span className="text-red-400">tab</span> - Auto complete
         </li>
       </ul>
     );
@@ -342,10 +342,10 @@ export default class Terminal extends React.Component<{}, TerminalState> {
     const newRow = (
       <div key={`terminal-input-row-${id}`} className="flex">
         <div className="w-full flex items-center space-x-1.5">
-          <span text-yellow-200>
-            zou@macbook-pro <span text-green-300>{this.getCurDirName()}</span>
+          <span className="text-yellow-200">
+            zou@macbook-pro <span className="text-green-300">{this.getCurDirName()}</span>
           </span>
-          <span text-red-400>{">"}</span>
+          <span className="text-red-400">{">"}</span>
         </div>
         <input
           id={`terminal-input-${id}`}
@@ -360,7 +360,7 @@ export default class Terminal extends React.Component<{}, TerminalState> {
 
   generateResultRow = (id: number, result: JSX.Element) => {
     const newRow = (
-      <div key={`terminal-result-row-${id}`} break-all>
+      <div key={`terminal-result-row-${id}`} className="break-all">
         {result}
       </div>
     );
