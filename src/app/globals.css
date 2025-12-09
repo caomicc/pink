@@ -45,7 +45,7 @@
 
 :root {
 
-  --amber-100: #352700;
+  /* --amber-100: #352700;
   --amber-200: #6a4e00;
   --amber-300: #9f7500;
   --amber-400: #d49c00;
@@ -93,10 +93,10 @@
   --azure-600: #609dff;
   --azure-700: #88b5ff;
   --azure-800: #afceff;
-  --azure-900: #d7e6ff;
+  --azure-900: #d7e6ff; */
 
   --radius: 0.625rem;
-  --background: oklch(1 0 0);
+  --background: var(--color-purple-50);
   --foreground: oklch(0.147 0.004 49.25);
   --card: oklch(1 0 0);
   --card-foreground: oklch(0.147 0.004 49.25);
@@ -169,6 +169,7 @@
   }
   body {
     @apply text-foreground bg-background;
+
   }
 }
 
@@ -180,6 +181,78 @@
   100% {
     transform: translateX(-50%);
   }
+}
+
+
+.site-heading {
+  font-size: 3rem;
+  font-weight: bold;
+  position: relative;
+  background: linear-gradient(90deg, var(--color-indigo-300), var(--color-violet-400), var(--color-purple-300));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+
+h1, .h1{
+  font-size: 1.875rem;
+  font-weight: bold;
+  position: relative;
+  background: linear-gradient(90deg, var(--color-indigo-300), var(--color-violet-400), var(--color-purple-300));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+h2, .h2{
+  font-size: 1.75rem;
+  font-weight: bold;
+  position: relative;
+  background: linear-gradient(90deg, var(--color-indigo-300), var(--color-violet-400), var(--color-purple-300));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+h3, .h3{
+  font-size: 1.75rem;
+  font-weight: normal;
+  position: relative;
+  background: linear-gradient(90deg, var(--color-indigo-300), var(--color-violet-400), var(--color-purple-300));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+h4, .h4{
+  font-size: 1.5rem;
+  font-weight: bold;
+  position: relative;
+  background: linear-gradient(90deg, var(--color-indigo-300), var(--color-violet-400), var(--color-purple-300));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+h5, .h5{
+  font-size: 1.25rem;
+  font-weight: bold;
+  position: relative;
+  background: linear-gradient(90deg, var(--color-indigo-300), var(--color-violet-400), var(--color-purple-300));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+h6, .h6{
+  font-size: 1rem;
+  font-weight: bold;
+  position: relative;
+  background: linear-gradient(90deg, var(--color-indigo-300), var(--color-violet-400), var(--color-purple-300));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+p{
+  @apply text-sm;
+}
+
+.section-container{
+ @apply bg-white p-3 flex flex-col gap-4 rounded-sm;
 }
 
 .marquee-container {

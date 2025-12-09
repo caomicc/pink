@@ -1,43 +1,34 @@
 import { Analytics } from '@vercel/analytics/next';
 import type { Metadata } from 'next';
-import { Geist, Geist_Mono } from 'next/font/google';
+import { Playpen_Sans } from 'next/font/google';
 import './globals.css';
 import { SpeedInsights } from '@vercel/speed-insights/next';
-// import {
-//   NavigationMenu,
-//   NavigationMenuItem,
-//   NavigationMenuLink,
-//   NavigationMenuList,
-// } from '@/components/ui/navigation-menu';
-// import Link from 'next/link';
+import { SidebarNav } from '@/components/sidebar-nav';
+import { cn } from '@/lib/utils';
 
-const geistSans = Geist({
-  variable: '--font-geist-sans',
+const playpen = Playpen_Sans({
+  variable: '--font-playpen',
   subsets: ['latin'],
 });
 
-const geistMono = Geist_Mono({
-  variable: '--font-geist-mono',
-  subsets: ['latin'],
-});
 
 export const metadata: Metadata = {
-  title: 'Cameron Omiccioli – Software Engineer',
+  title: 'LamLamLam.',
   description:
-    'Personal website of Cameron Omiccioli. Software engineer, designer, and builder. Sharing projects, toolbox, and thoughts.',
+    'Oh, hello',
   metadataBase: new URL('https://caomi.cc'),
   openGraph: {
-    title: 'Cameron Omiccioli – Software Engineer',
+    title: 'LamLamLam.',
     description:
-      'Personal website of Cameron Omiccioli. Software engineer, designer, and builder. Sharing projects, toolbox, and thoughts.',
+      'Oh, hello',
     url: 'https://caomi.cc',
-    siteName: 'Cameron Omiccioli',
+    siteName: 'LamLamLam.',
     images: [
       {
         url: '/og.png',
         width: 1200,
         height: 630,
-        alt: 'Cameron Omiccioli – Software Engineer',
+        alt: 'LamLamLam.',
       },
     ],
     locale: 'en_US',
@@ -45,9 +36,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Cameron Omiccioli – Software Engineer',
+    title: 'LamLamLam.',
     description:
-      'Personal website of Cameron Omiccioli. Software engineer, designer, and builder. Sharing projects, toolbox, and thoughts.',
+      'Oh, hello',
     site: '@caomi_cc',
     creator: '@caomi_cc',
     images: ['/og.png'],
@@ -65,56 +56,47 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className="dark">
+    <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased relative pt-10 lg:pt-20`}
+        className={`${playpen.className} ${playpen.variable} antialiased py-4`}
       >
-        {/* <div className="fixed left-1/2 -translate-x-1/2 z-[100] border-white/30 border border-1 rounded-full backdrop-blur-xl transition-all duration-500 ease-in-out top-6 bottom-auto bottom-0 scrolling bg-white/10">
-          <div className="container mx-auto flex justify-center items-center py-1 px-3">
-            <NavigationMenu>
-              <NavigationMenuList>
-                <NavigationMenuItem>
-                  <NavigationMenuLink asChild>
-                    <Link href="/">Home</Link>
-                  </NavigationMenuLink>
-                </NavigationMenuItem>
-                <NavigationMenuItem>
-                  <NavigationMenuLink asChild>
-                    <Link href="/project">Projects</Link>
-                  </NavigationMenuLink>
-                </NavigationMenuItem>
-                <NavigationMenuItem>
-                  <NavigationMenuLink asChild>
-                    <Link href="/toolbox">Toolbox</Link>
-                  </NavigationMenuLink>
-                </NavigationMenuItem>
-              </NavigationMenuList>
-            </NavigationMenu>
+        <div className={cn("@container",
+      "min-h-screen flex flex-col justify-center items-center text-center max-w-5xl mx-auto my-4 gap-3 p-3",
+      'border-2 border-violet-300 rounded-2xl overflow-hidden bg-gradient-to-b from-azure-200 to-purple-200',
+      )}>
+      <div className="w-full bg-white/50 p-4 rounded-t-lg">
+        <h1 className="site-heading w-auto text-center inline">LamLamLam.</h1>
+      </div>
+      <div className="flex-1 flex w-full gap-3">
+        <div className="w-[25%] flex gap-3 flex-col">
+          <div className="section-container">
+            <p className="h6">navigation</p>
+            <SidebarNav />
           </div>
-        </div> */}
-        {children}
-        <div className="mx-4">
-          <footer className="mt-16 max-w-5xl mx-auto">
-            <div className="w-full max-w-screen-xl mx-auto p-4">
-              <div className="sm:flex sm:items-center sm:justify-between">
-                <ul className="flex flex-wrap items-center mb-6 text-sm font-medium text-gray-500 sm:mb-0 dark:text-gray-200">
-                  <li>
-                    <a href="https://github.com/caomicc/pink" target='_blank' className="hover:underline me-4 md:me-6">
-                      Github Repository
-                    </a>
-                  </li>
-                </ul>
-                <span className="block text-sm text-gray-500 sm:text-center dark:text-gray-100">
-                  © {new Date().getFullYear()}{' '}
-                  <a href="https://flowbite.com/" className="hover:underline">
-                    Cameron Omiccioli
-                  </a>
-                  . All Rights Reserved.
-                </span>
-              </div>
-            </div>
-          </footer>
+          <div className="section-container">
+            <p className="h6">fanlists</p>
+          </div>
         </div>
+        <div className="w-[50%] section-container text-left">
+          {children}
+        </div>
+        <div className="w-[25%] flex gap-3 flex-col">
+          <div className="section-container">
+            <p className="h6">status</p>
+            <p>
+              <a href="https://www.imood.com/users/lamlamlam">
+                Lammy is feeling... <img src="https://moods.imood.com/display/uname-lamlamlam/imood.gif" alt="The current mood of lamlamlam at www.imood.com" className="inline"/>
+              </a>
+            </p>
+          </div>
+
+
+        </div>
+      </div>
+      <div className="w-full bg-white/50 p-4 rounded-b-lg">
+        <p className=''>made with love by lamlamlam. &copy; 2025 - forever</p>
+      </div>
+    </div>
         <Analytics />
         <SpeedInsights />
       </body>
