@@ -72,7 +72,7 @@ export async function POST(request: NextRequest) {
     }
 
     // Create the entry and update rate limit in a transaction
-    const entry = await prisma.$transaction(async (tx: typeof prisma) => {
+    const entry = await prisma.$transaction(async (tx) => {
       // Upsert rate limit
       await tx.rateLimit.upsert({
         where: { ip },
