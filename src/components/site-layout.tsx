@@ -36,35 +36,26 @@ export function SiteFooter() {
     <div className="site-footer">
       {/* Main footer text */}
       <p className="site-footer-text text-sm mb-2">
-        ~*~ Made with ♥ by lamlamlam ~*~
+        ~*~ Made with ♥ by cammy ~*~
       </p>
 
       {/* Pixel divider */}
-      <div className="pixel-divider" />
+      {/* <div className="pixel-divider" /> */}
 
       {/* Quick links */}
-      <div className="site-footer-links mb-3">
+      {/* <div className="site-footer-links mb-3">
         [ <Link href="/">Home</Link> ]
         [ <Link href="/about">About</Link> ]
         [ <Link href="/guestbook">Guestbook</Link> ]
         [ <Link href="/resources">Links</Link> ]
-      </div>
-
-      {/* 88x31 button area */}
-      <div className="pixel-button-container mb-3">
-        <span className="fake-button fake-button-pink">Made with ♥</span>
-        <span className="fake-button fake-button-purple">Lammy&apos;s Site</span>
-        <span className="fake-button fake-button-blue">2025</span>
-        {/* <span className="fake-button fake-button-rainbow">✧ COOL ✧</span> */}
-      </div>
+      </div> */}
 
       {/* Pixel divider */}
       <div className="pixel-divider" />
 
       {/* Meta info */}
       <div className="site-footer-meta space-y-1">
-        <p>★ Best viewed with an open mind ★</p>
-        <p>© 2025 - forever | Last updated: December 2025</p>
+        <p>© 2025 - forever, probably</p>
       </div>
     </div>
   );

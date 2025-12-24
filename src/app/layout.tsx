@@ -70,37 +70,14 @@ export default function RootLayout({
         className={`${bodyFont.className} ${bodyFont.variable} ${pixelFont.variable} antialiased page-bg py-4`}
       >
         <div className={cn("@container",
-      "min-h-screen flex flex-col items-center text-center max-w-5xl mx-auto my-4 gap-3 p-4",
-      'site-wrapper rounded-lg overflow-hidden',
-      )}>
-      {/* <div className="relative w-full">
-        <SiteHeader />
-        <div className="bg-white/70 p-3 mt-2 rounded-lg border-2 border-pink-200">
-          <HorizontalNav />
-        </div>
-      </div>
-      <div className="flex-1 flex w-full gap-3">
-        <div className="w-[75%] site-content p-4 text-left rounded-sm"> */}
-          {children}
-        {/* </div>
-        <div className="w-[25%] flex gap-3 flex-col">
-          <div className="site-section">
-            <p className="site-section-title">✧ status ✧</p>
-            <p className="text-sm">
-              <a href="https://www.imood.com/users/lamlamlam" className="text-purple-700 hover:text-pink-500">
-                Lammy is feeling... <img src="https://moods.imood.com/display/uname-lamlamlam/imood.gif" alt="The current mood of lamlamlam at www.imood.com" className="inline"/>
-              </a>
-            </p>
-          </div>
-          <div className="site-section">
-            <p className="site-section-title">♥ fanlists ♥</p>
+          "flex flex-col items-center text-center max-w-3xl mx-auto my-4 gap-3 p-4",
+          'site-wrapper rounded-lg overflow-hidden',
+          )}>
+              {children}
+          <div className="w-full">
+            <SiteFooter />
           </div>
         </div>
-      </div> */}
-      <div className="w-full">
-        <SiteFooter />
-      </div>
-    </div>
         <Analytics />
         <SpeedInsights />
       </body>
