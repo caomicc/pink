@@ -41,12 +41,12 @@ export function GuestbookEntry({ name, message, createdAt }: GuestbookEntryProps
   const relativeTime = formatRelativeTime(date);
 
   return (
-    <div className="bg-white/30 rounded-lg p-4 border border-violet-200">
-      <div className="flex justify-between items-start mb-2">
-        <span className="font-semibold text-violet-700">{name}</span>
-        <span className="text-xs text-gray-500">{relativeTime}</span>
+    <div className="guestbook-entry">
+      <div className="flex justify-between items-start mb-1">
+        <span className="guestbook-entry-name">~{name}~</span>
+        <span className="guestbook-entry-date">[{relativeTime}]</span>
       </div>
-      <p className="text-gray-700 whitespace-pre-wrap break-words">{message}</p>
+      <p className="guestbook-entry-message whitespace-pre-wrap break-words">{message}</p>
     </div>
   );
 }

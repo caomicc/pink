@@ -183,10 +183,10 @@ function NavDropdown({
         aria-expanded={isOpen}
         aria-haspopup="true"
         aria-controls={menuId}
-        className={`flex items-center px-3 py-2 font-medium text-sm rounded-md transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-sky-500 focus-visible:ring-offset-2 ${hasActiveChild ? activeClass : defaultClass}`}
+        className={`nav-item ${hasActiveChild ? "nav-item--active" : ""}`}
       >
         {item.label}
-        <ChevronDownIcon isOpen={isOpen} />
+        <span className="nav-chevron">{isOpen ? "▲" : "▼"}</span>
       </button>
 
       {isOpen && item.children && (
@@ -195,7 +195,7 @@ function NavDropdown({
           role="menu"
           aria-orientation="vertical"
           aria-labelledby={id}
-          className="absolute top-full left-0 min-w-[180px] bg-white dark:bg-slate-800 rounded-lg shadow-lg border border-slate-200 dark:border-slate-700 py-1 z-50 mt-1"
+          className="dropdown-menu absolute top-full left-0 min-w-[180px] z-50 mt-1"
         >
           {item.children.map((child, index) => {
             const isActive = child.href === currentPath;
@@ -210,9 +210,9 @@ function NavDropdown({
                 tabIndex={focusedIndex === index ? 0 : -1}
                 onClick={closeDropdown}
                 onKeyDown={(e) => handleMenuKeyDown(e, index)}
-                className={`block text-left px-4 py-2 text-sm rounded-md mx-1 transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-sky-500 focus-visible:ring-inset ${isActive ? activeClass : defaultClass} hover:bg-slate-100 dark:hover:bg-slate-700 focus-visible:bg-slate-100 dark:focus-visible:bg-slate-700`}
+                className={`dropdown-item ${isActive ? "dropdown-item--active" : ""}`}
               >
-                {child.label}
+                ✧ {child.label}
               </Link>
             );
           })}
@@ -279,7 +279,7 @@ export function HorizontalNav() {
   return (
     <>
       {/* Desktop Navigation */}
-      <nav aria-label="Main navigation" className="hidden md:flex items-center justify-center gap-1">
+      <nav aria-label="Main navigation" className="site-nav hidden md:flex items-center justify-center gap-1 flex-wrap">
         {navItems.map((item, index) => {
           if (item.children) {
             return (
@@ -298,7 +298,7 @@ export function HorizontalNav() {
               key={index}
               href={item.href || "#"}
               aria-current={isActive ? "page" : undefined}
-              className={`px-3 py-2 font-medium text-sm rounded-md transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-sky-500 focus-visible:ring-offset-2 ${isActive ? activeClass : defaultClass}`}
+              className={`nav-item ${isActive ? "nav-item--active" : ""}`}
             >
               {item.label}
             </Link>
@@ -307,41 +307,19 @@ export function HorizontalNav() {
       </nav>
 
       {/* Mobile Navigation */}
-      <div className="md:hidden">
+      <div className="md:hidden flex justify-center">
         <button
           ref={hamburgerRef}
           onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
           aria-expanded={mobileMenuOpen}
           aria-controls="mobile-menu"
           aria-label={mobileMenuOpen ? "Close menu" : "Open menu"}
-          className="p-2 rounded-md text-slate-700 hover:text-slate-900 hover:bg-slate-100 dark:text-slate-400 dark:hover:text-slate-300 dark:hover:bg-slate-700 focus:outline-none focus-visible:ring-2 focus-visible:ring-sky-500"
+          className="hamburger-btn"
         >
           {mobileMenuOpen ? (
-            <svg
-              width="24"
-              height="24"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="2"
-              strokeLinecap="round"
-              aria-hidden="true"
-            >
-              <path d="M18 6L6 18M6 6l12 12" />
-            </svg>
+            <span className="text-lg">✖</span>
           ) : (
-            <svg
-              width="24"
-              height="24"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="2"
-              strokeLinecap="round"
-              aria-hidden="true"
-            >
-              <path d="M4 6h16M4 12h16M4 18h16" />
-            </svg>
+            <span className="text-lg">☰</span>
           )}
         </button>
 
@@ -350,7 +328,7 @@ export function HorizontalNav() {
             id="mobile-menu"
             ref={mobileMenuRef}
             role="menu"
-            className="absolute left-0 right-0 top-full mx-3 mt-2 bg-white dark:bg-slate-800 rounded-lg shadow-lg border border-slate-200 dark:border-slate-700 py-2 z-50 max-h-[70vh] overflow-y-auto"
+            className="mobile-menu absolute left-3 right-3 top-full mt-2 py-2 z-50 max-h-[70vh] overflow-y-auto"
           >
             {navItems.map((item, index) => {
               if (item.children) {
@@ -360,18 +338,18 @@ export function HorizontalNav() {
                 );
 
                 return (
-                  <div key={index} className="px-2">
+                  <div key={index} className="px-2 py-1">
                     <button
                       onClick={() => toggleSection(item.label)}
                       aria-expanded={isExpanded}
-                      className={`flex items-center justify-between w-full px-3 py-2 font-medium text-sm rounded-md transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-sky-500 ${hasActiveChild ? activeClass : defaultClass}`}
+                      className={`nav-item w-full justify-between ${hasActiveChild ? "nav-item--active" : ""}`}
                     >
                       {item.label}
-                      <ChevronDownIcon isOpen={isExpanded} />
+                      <span className="nav-chevron">{isExpanded ? "▲" : "▼"}</span>
                     </button>
 
                     {isExpanded && (
-                      <div className="ml-4 border-l-2 border-slate-200 dark:border-slate-700 pl-2">
+                      <div className="nav-section mt-1">
                         {item.children.map((child, childIndex) => {
                           const isActive = child.href === pathname;
                           return (
@@ -381,9 +359,9 @@ export function HorizontalNav() {
                               role="menuitem"
                               aria-current={isActive ? "page" : undefined}
                               onClick={() => setMobileMenuOpen(false)}
-                              className={`text-left block px-3 py-2 text-sm rounded-md transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-sky-500 ${isActive ? activeClass : defaultClass} hover:bg-slate-100 dark:hover:bg-slate-700`}
+                              className={`dropdown-item ${isActive ? "dropdown-item--active" : ""}`}
                             >
-                              {child.label}
+                              ✧ {child.label}
                             </Link>
                           );
                         })}
@@ -395,13 +373,13 @@ export function HorizontalNav() {
 
               const isActive = item.href === pathname;
               return (
-                <div key={index} className="px-2">
+                <div key={index} className="px-2 py-1">
                   <Link
                     href={item.href || "#"}
                     role="menuitem"
                     aria-current={isActive ? "page" : undefined}
                     onClick={() => setMobileMenuOpen(false)}
-                    className={`block px-3 py-2 font-medium text-sm rounded-md transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-sky-500 ${isActive ? activeClass : defaultClass} hover:bg-slate-100 dark:hover:bg-slate-700`}
+                    className={`nav-item w-full ${isActive ? "nav-item--active" : ""}`}
                   >
                     {item.label}
                   </Link>

@@ -2,8 +2,6 @@
 
 import { useState } from 'react';
 import { Input } from '@/components/ui/input';
-import { Textarea } from '@/components/ui/textarea';
-import { Button } from '@/components/ui/button';
 
 interface GuestbookFormProps {
   onSuccess?: () => void;
@@ -50,36 +48,38 @@ export function GuestbookForm({ onSuccess }: GuestbookFormProps) {
   };
 
   return (
-    <form onSubmit={handleSubmit} className="space-y-4">
+    <form onSubmit={handleSubmit} className="guestbook-form space-y-4">
       <div>
-        <label htmlFor="name" className="block text-sm font-medium mb-1">
-          Your Name
+        <label htmlFor="name" className="block text-sm mb-1">
+          ♥ Your Name ♥
         </label>
-        <Input
+        <input
           id="name"
           type="text"
           value={name}
           onChange={(e) => setName(e.target.value)}
-          placeholder="What should we call you?"
+          placeholder="~*~ What should we call you? ~*~"
           maxLength={50}
           required
           disabled={isSubmitting}
+          className="field-input w-full"
         />
       </div>
 
       <div>
-        <label htmlFor="message" className="block text-sm font-medium mb-1">
-          Message
+        <label htmlFor="message" className="block text-sm mb-1">
+          ♥ Message ♥
         </label>
-        <Textarea
+        <textarea
           id="message"
           value={message}
           onChange={(e) => setMessage(e.target.value)}
-          placeholder="Leave a message... ✨"
+          placeholder="Leave a message... ☆彡"
           maxLength={500}
           rows={4}
           required
           disabled={isSubmitting}
+          className="field-input w-full resize-none"
         />
       </div>
 
@@ -97,16 +97,16 @@ export function GuestbookForm({ onSuccess }: GuestbookFormProps) {
       </div>
 
       {error && (
-        <p className="text-red-500 text-sm">{error}</p>
+        <p className="msg-error">{error}</p>
       )}
 
       {success && (
-        <p className="text-green-600 text-sm">Thanks for signing the guestbook! 💖</p>
+        <p className="msg-success">~*~ Thanks for signing!! ~*~ ♥♥♥</p>
       )}
 
-      <Button type="submit" disabled={isSubmitting}>
-        {isSubmitting ? 'Signing...' : 'Sign Guestbook ✍️'}
-      </Button>
+      <button type="submit" disabled={isSubmitting} className="btn-action">
+        {isSubmitting ? '✧ Signing... ✧' : '✧ Sign Guestbook ✧'}
+      </button>
     </form>
   );
 }

@@ -20,25 +20,33 @@ export default async function GuestbookPage() {
   const entries = await getEntries();
 
   return (
-    <div>
-      <h1 className="h4 mb-4">📖 Guestbook</h1>
-      <p className="mb-6 text-gray-600">
-        Leave a message and say hi! I&apos;d love to hear from you 💕
+    <div className="guestbook-container">
+      <h1 className="guestbook-title text-2xl mb-2 text-center">
+        <span className="sparkle">✧</span> Sign My Guestbook! <span className="sparkle">✧</span>
+      </h1>
+      <p className="text-center mb-4 text-purple-800">
+        ~*~ Leave a message and say hi! ~*~
       </p>
 
-      <div className="mb-8">
+      <div className="mb-6">
         <GuestbookFormWithRefresh />
       </div>
 
-      <div className="space-y-4">
-        <h2 className="h6">Messages ({entries.length})</h2>
+      <div>
+        <h2 className="text-lg mb-3 text-fuchsia-700">
+          <span className="blink">★</span> Messages ({entries.length}) <span className="blink">★</span>
+        </h2>
         {entries.length === 0 ? (
-          <p className="text-gray-500 italic">
-            No messages yet. Be the first to sign! ✨
+          <p className="text-center text-purple-600 italic">
+            No messages yet... Be the first to sign! <span className="sparkle">✿</span>
           </p>
         ) : (
           <GuestbookEntries initialEntries={entries} />
         )}
+      </div>
+
+      <div className="text-center mt-4 text-xs text-purple-700">
+        <span className="visitor-counter">{entries.length} visitors have signed!</span>
       </div>
     </div>
   );
