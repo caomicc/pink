@@ -36,7 +36,7 @@ export function SiteFooter() {
     <div className="site-footer">
       {/* Main footer text */}
       <p className="site-footer-text text-sm mb-2">
-        ~*~ Made with ♥ by cammy ~*~
+        Made with ♥ by cammy
       </p>
 
       {/* Pixel divider */}

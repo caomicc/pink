@@ -1,20 +1,19 @@
 import { Analytics } from '@vercel/analytics/next';
 import type { Metadata } from 'next';
-import { Comic_Relief, Delius, Pixelify_Sans, Playpen_Sans, Sour_Gummy } from 'next/font/google';
+import { Funnel_Sans } from 'next/font/google';
 import './globals.css';
 import { SpeedInsights } from '@vercel/speed-insights/next';
-import { HorizontalNav } from '@/components/horizontal-nav';
-import { SiteHeader, SiteFooter } from '@/components/site-layout';
+import { SiteFooter } from '@/components/site-layout';
 import { cn } from '@/lib/utils';
 
-const bodyFont = Pixelify_Sans({
+const bodyFont = Funnel_Sans({
   variable: '--font-body',
   subsets: ['latin'],
   weight: '400'
 });
 
 
-const pixelFont = Pixelify_Sans({
+const pixelFont = Funnel_Sans({
   variable: '--font-pixels',
   subsets: ['latin'],
   weight: '400'
