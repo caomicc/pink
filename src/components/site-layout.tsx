@@ -33,10 +33,10 @@ export function SiteHeader() {
 
 export function SiteFooter() {
   return (
-    <div className="site-footer">
+    <div className="site-footer mt-2 font-polished">
       {/* Main footer text */}
-      <p className="site-footer-text text-sm mb-2">
-        Made with ♥ by cammy
+      <p className="mb-2 text-px">
+        Made with love by cammy
       </p>
 
       {/* Pixel divider */}
@@ -54,9 +54,9 @@ export function SiteFooter() {
       <div className="pixel-divider" />
 
       {/* Meta info */}
-      <div className="site-footer-meta space-y-1">
-        <p>© 2025 - forever, probably</p>
-      </div>
+      <p className="text-px space-y-1">
+        © 2025 - forever... probably
+      </p>
     </div>
   );
 }

@@ -1,20 +1,13 @@
 import { Analytics } from '@vercel/analytics/next';
 import type { Metadata } from 'next';
-import { Funnel_Sans } from 'next/font/google';
+import { Funnel_Sans, Inter, Noto_Sans } from 'next/font/google';
 import './globals.css';
 import { SpeedInsights } from '@vercel/speed-insights/next';
 import { SiteFooter } from '@/components/site-layout';
 import { cn } from '@/lib/utils';
 
-const bodyFont = Funnel_Sans({
+const bodyFont = Inter({
   variable: '--font-body',
-  subsets: ['latin'],
-  weight: '400'
-});
-
-
-const pixelFont = Funnel_Sans({
-  variable: '--font-pixels',
   subsets: ['latin'],
   weight: '400'
 });
@@ -66,14 +59,14 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${bodyFont.className} ${bodyFont.variable} ${pixelFont.variable} antialiased page-bg py-4`}
+        className={`${bodyFont.className} ${bodyFont.variable} antialiased page-bg py-4`}
       >
         <div className={cn("@container",
-          "flex flex-col items-center text-center max-w-3xl mx-auto my-4 gap-3 p-4",
-          'site-wrapper rounded-lg overflow-hidden',
-          )}>
-              {children}
-          <div className="w-full">
+          "flex flex-col mx-auto",
+          'site-wrapper overflow-hidden text-left',
+        )}>
+          {children}
+          <div className="w-full text-center pt-8">
             <SiteFooter />
           </div>
         </div>

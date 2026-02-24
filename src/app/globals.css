@@ -3,6 +3,22 @@
 
 @custom-variant dark (&:is(.dark *));
 
+@font-face {
+  font-family: "Polished";
+  src: url("/fonts/Polished-Regular.woff2") format("woff2"),
+        url("/fonts/Polished-Regular.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+
+.font-polished {
+  font-family: "Polished", monospace;
+  font-size: 10px;
+  font-smooth: never;
+  -webkit-font-smoothing: none;
+}
+
+
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
@@ -41,113 +57,15 @@
   --radius-md: calc(var(--radius) - 2px);
   --radius-lg: var(--radius);
   --radius-xl: calc(var(--radius) + 4px);
-
-  /* Theme Color Scale */
-  --color-hue-1-100: var(--hue-1-100);
-  --color-hue-1-200: var(--hue-1-200);
-  --color-hue-1-300: var(--hue-1-300);
-  --color-hue-1-400: var(--hue-1-400);
-  --color-hue-1-500: var(--hue-1-500);
-  --color-hue-2-100: var(--hue-2-100);
-  --color-hue-2-200: var(--hue-2-200);
-  --color-hue-2-300: var(--hue-2-300);
-  --color-hue-2-400: var(--hue-2-400);
-  --color-hue-3-100: var(--hue-3-100);
-  --color-hue-4-100: var(--hue-4-100);
-  --color-hue-4-200: var(--hue-4-200);
-  --color-hue-5-100: var(--hue-5-100);
-  --color-hue-6-100: var(--hue-6-100);
-  --color-hue-6-400: var(--hue-6-400);
-  --color-hue-7-200: var(--hue-7-200);
-  --color-hue-8: var(--hue-8);
-  --color-neutral-100: var(--neutral-100);
-  --color-neutral-200: var(--neutral-200);
-  --color-text-base: var(--text-base);
-  --color-text-link: var(--text-link);
-
-  /* Theme fonts */
-  --font-display: var(--font-display);
-  --font-pixels: var(--font-pixels);
+  --font-polished: var(--font-polished);
 }
 
 :root {
 
-  /* Color Palette - Hue 1 (pink tones) */
-  --hue-1-100: #ffccff;
-  --hue-1-200: #ff99cc;
-  --hue-1-300: #ff66b2;
-  --hue-1-400: #ff69b4;
-  --hue-1-500: #ff3399;
-
-  /* Color Palette - Hue 2 (purple tones) */
-  --hue-2-100: #cc99ff;
-  --hue-2-200: #9966cc;
-  --hue-2-300: #660099;
-  --hue-2-400: #990066;
-
-  /* Color Palette - Hue 3 (blue tones) */
-  --hue-3-100: #99ccff;
-  --hue-3-200: #3399ff;
-  --hue-3-300: #ccccff;
-
-  /* Color Palette - Hue 4 (yellow tones) */
-  --hue-4-100: #ffffcc;
-  --hue-4-200: #ffff99;
-  --hue-4-300: #ffcc00;
-
-  /* Color Palette - Hue 5 (cyan tones) */
-  --hue-5-100: #ccffff;
-  --hue-5-200: #00ffff;
-
-  /* Color Palette - Hue 6 (green tones) */
-  --hue-6-100: #ccffcc;
-  --hue-6-200: #00cc00;
-  --hue-6-300: #006600;
-  --hue-6-400: #00ff00;
-
-  /* Color Palette - Hue 7 (red tones) */
-  --hue-7-100: #ffcccc;
-  --hue-7-200: #ff0000;
-  --hue-7-300: #cc0000;
-
-  /* Color Palette - Hue 8 (magenta) */
-  --hue-8: #ff00ff;
-
-  /* Neutrals */
-  --neutral-100: #c0c0c0;
-  --neutral-200: #808080;
-  --neutral-300: #333333;
-
-  --base-light: #ffffff;
-  --base-dark: #000000;
-
-  /* Semantic text */
-  --text-base: var(--hue-2-300);
-  --text-muted: #996699;
-  --text-link: #0000cc;
-  --text-dark: #333366;
-
-  /* Edge (border) colors */
-  --edge-light: var(--base-light);
-  --edge-mid: var(--neutral-200);
-  --edge-accent: var(--hue-1-400);
-
-  /* Gradients */
-  --gradient-header: linear-gradient(180deg, var(--hue-1-100) 0%, var(--hue-1-200) 50%, var(--hue-1-100) 100%);
-  --gradient-sidebar: linear-gradient(180deg, var(--hue-4-100) 0%, var(--hue-1-100) 100%);
-  --gradient-button: linear-gradient(180deg, var(--base-light) 0%, var(--hue-1-100) 100%);
-  --gradient-button-hover: linear-gradient(180deg, #ffddff 0%, var(--hue-1-200) 100%);
-  --gradient-button-active: linear-gradient(180deg, var(--hue-1-200) 0%, var(--hue-1-300) 100%);
-  --gradient-footer: linear-gradient(180deg, #ccccff 0%, var(--hue-1-100) 50%, var(--hue-7-100) 100%);
-  --gradient-wrapper: linear-gradient(180deg, var(--hue-1-100) 0%, #ffe6ff 20%, #fff0ff 50%, #ffe6ff 80%, var(--hue-1-100) 100%);
-  --gradient-bar: linear-gradient(90deg, var(--hue-1-200) 0%, var(--hue-1-100) 25%, var(--hue-2-100) 50%, var(--hue-3-100) 75%, var(--hue-1-200) 100%);
-
   /* Font family */
-  --font-display: var(--font-body);
-  /* --font-pixels: 'Courier New', monospace; */
-
+  --font-polished: 'Polished', monospace;
   --radius: 0.625rem;
-  --background: var(--color-purple-50);
+  --background: var(--color-zinc-100);
   --foreground: oklch(0.147 0.004 49.25);
   --card: oklch(1 0 0);
   --card-foreground: oklch(0.147 0.004 49.25);
@@ -234,14 +152,25 @@
   }
 }
 
+html {
+  -webkit-text-size-adjust: 100%;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+  -moz-font-feature-settings: "liga","kern";
+  -moz-font-feature-settings: "liga=1, kern=1";
+  -ms-font-feature-settings: "liga","kern";
+  -o-font-feature-settings: "liga","kern";
+  -webkit-font-feature-settings: "liga", "kern";
+  font-feature-settings: "liga", "kern";
+  font-stretch: 100%;
+}
+
 
 .site-heading {
   font-size: 3rem;
   font-weight: bold;
   position: relative;
-  background: linear-gradient(90deg, var(--color-indigo-300), var(--color-violet-400), var(--color-purple-300));
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
 }
 
 
@@ -249,55 +178,63 @@ h1, .h1{
   font-size: 1.875rem;
   font-weight: bold;
   position: relative;
-  background: linear-gradient(90deg, var(--color-indigo-300), var(--color-violet-400), var(--color-purple-300));
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
 }
 
 h2, .h2{
   font-size: 1.75rem;
   font-weight: bold;
   position: relative;
-  background: linear-gradient(90deg, var(--color-indigo-300), var(--color-violet-400), var(--color-purple-300));
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
 }
 
 h3, .h3{
   font-size: 1.75rem;
   font-weight: normal;
   position: relative;
-  background: linear-gradient(90deg, var(--color-indigo-300), var(--color-violet-400), var(--color-purple-300));
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
 }
 h4, .h4{
   font-size: 1.5rem;
   font-weight: bold;
   position: relative;
-  background: linear-gradient(90deg, var(--color-indigo-300), var(--color-violet-400), var(--color-purple-300));
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
 }
 
 h5, .h5{
   font-size: 1.25rem;
   font-weight: bold;
   position: relative;
-  background: linear-gradient(90deg, var(--color-indigo-300), var(--color-violet-400), var(--color-purple-300));
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
 }
 
 h6, .h6{
   font-size: 1rem;
   font-weight: bold;
   position: relative;
-  background: linear-gradient(90deg, var(--color-indigo-300), var(--color-violet-400), var(--color-purple-300));
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
 }
 
-p{
-  @apply text-sm;
+.specimen-dots {
+  background-image: url(/images/dots.svg);
+  background-position: 0 0;
+  background-repeat: repeat;
+  background-size: 2px 2px;
+}
+
+.cursor-move {
+  cursor: move !important;
+}
+
+.smooth-never {
+  font-smooth: never;
+  -webkit-font-smoothing: none;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Pixel font size utilities (multiples of 10px) */
+.text-px { font-size: 10px; }
+.text-px-20 { font-size: 20px; }
+.text-px-30 { font-size: 30px; }
+.text-px-40 { font-size: 40px; }
+
+/* Pixel-perfect rendering */
+.rendering-pixelated {
+  image-rendering: pixelated;
+  image-rendering: -moz-crisp-edges;
+  image-rendering: crisp-edges;
 }
