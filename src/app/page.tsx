@@ -106,7 +106,7 @@ export default function Home() {
               </Link>
             </p>
             <p>
-              <Link href={'https://www.linkedin.com/in/caomicc/'}
+              <Link href={'https://www.github.com/caomicc/'}
                 target="_blank"
                 className="inline-flex items-center underline leading-tight">
                 Github  <ArrowUpRight className="inline size-5" />
