@@ -10,7 +10,7 @@ export default function Home() {
         </h1>
         <h2 className="text-px-20 font-polished leading-tight">I am a front-end dev who dabbles in full-stack.</h2>
       </div>
-      <div className="flex flex-row items-start gap-20 w-full">
+      <div className="flex flex-col md:flex-row items-start gap-12 md:gap-20 w-full">
         <div className="w-full flex flex-col items-start gap-4 text-left">
           <p className="text-md">
             I have been building websites since Myspace and Neopets were the biggest thing. I have always had a passion for front-end development and UI/UX.
@@ -22,10 +22,10 @@ export default function Home() {
             My favorite website that I have built is <Link className="inline-flex items-center underline" href="https://polisheddex.app">PolishedDex <ArrowUpRight className="inline size-5" /></Link>, which is a data-mined Pokédex for the ROM Hack Polished Crystal. This project originally was done as a way to not have to review data files manually and rather wanting to try putting it into a auto generated human readable format which would allow for generating quick updates when the source is updated. It was also a neat way for me try some prompt-engineering!
           </p>
         </div>
-        <div className="flex flex-col gap-12">
+        <div className="flex flex-col gap-12 w-full">
           <div className="rounded-lg overflow-hidden border border-lime-800 max-w-[300px] w-full">
             <div
-              className="relative flex-1 bg-white min-h-[300px] aspect-square flex flex-col rendering-pixelated specimen-dots"
+              className="relative flex-1 w-full bg-white aspect-square max-w-[300px] flex flex-col rendering-pixelated specimen-dots"
             >
               <div
                 className="font-polished text-black smooth-never text-px leading-none border-black bg-white border-b p-1 ring-1 ring-white flex justify-between space-x-2 px-2"
