@@ -12,7 +12,7 @@ export default function Home() {
       </div>
       <div className="flex flex-col md:flex-row items-start gap-8 md:gap-12 w-full">
         <div className="w-full text-left">
-          <div className="rounded-lg overflow-hidden border border-lime-800 w-full sm:max-w-1/3 float-left mr-4">
+          <div className="rounded-lg overflow-hidden border border-lime-800 w-full sm:max-w-1/3 float-left mb-4 sm:mr-4">
             <div
               className="relative flex-1 w-full bg-white aspect-square max-w-full flex flex-col rendering-pixelated specimen-dots"
             >
