@@ -58,6 +58,8 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+      <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2343108418778023"
+        crossOrigin="anonymous"></script>
       <body
         className={`${bodyFont.className} ${bodyFont.variable} antialiased page-bg py-4`}
       >
