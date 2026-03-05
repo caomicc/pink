@@ -4,6 +4,7 @@ import { Funnel_Sans, Inter, Noto_Sans } from 'next/font/google';
 import './globals.css';
 import { SpeedInsights } from '@vercel/speed-insights/next';
 import { SiteFooter } from '@/components/site-layout';
+import { HorizontalNav } from '@/components/horizontal-nav';
 import { cn } from '@/lib/utils';
 
 const bodyFont = Inter({
@@ -67,6 +68,7 @@ export default function RootLayout({
           "flex flex-col mx-auto",
           'site-wrapper overflow-hidden text-left',
         )}>
+          <HorizontalNav />
           {children}
           <div className="w-full text-center pt-8">
             <SiteFooter />

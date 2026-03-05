@@ -3,6 +3,7 @@
 import { usePathname } from "next/navigation";
 import Link from "next/link";
 import { useState, useRef, useEffect, useCallback } from "react";
+import { cn } from "@/lib/utils";
 
 type NavItem = {
   label: string;
@@ -12,54 +13,8 @@ type NavItem = {
 
 const navItems: NavItem[] = [
   { label: "Home", href: "/" },
-  {
-    label: "Personal",
-    children: [
-      { label: "About me", href: "/about" },
-      { label: "Moodboard", href: "/moodboard" },
-    ],
-  },
-  {
-    label: "My Work",
-    children: [
-      { label: "PolishedDex", href: "/polisheddex" },
-      { label: "Art", href: "/art" },
-    ],
-  },
-  {
-    label: "Collections",
-    children: [
-      { label: "Tamagotchi", href: "/tamagotchi" },
-      { label: "Mechanical Keyboards", href: "/mechanical-keyboards" },
-    ],
-  },
-  {
-    label: "Fun",
-    children: [
-      { label: "Song of the week", href: "/song-of-the-week" },
-      { label: "Resources", href: "/resources" },
-      { label: "Guestbook", href: "/guestbook" },
-    ],
-  },
+  { label: "PolishedDex", href: "/polisheddex" },
 ];
-
-function ChevronDownIcon({ isOpen }: { isOpen: boolean }) {
-  return (
-    <svg
-      width="12"
-      height="12"
-      viewBox="0 0 12 12"
-      className={`ml-1 transition-transform duration-200 ${isOpen ? "rotate-180" : ""}`}
-      fill="none"
-      stroke="currentColor"
-      strokeWidth="1.5"
-      strokeLinecap="round"
-      aria-hidden="true"
-    >
-      <path d="M3 4.5L6 7.5L9 4.5" />
-    </svg>
-  );
-}
 
 function NavDropdown({
   item,
@@ -79,10 +34,6 @@ function NavDropdown({
   const hasActiveChild = item.children?.some(
     (child) => child.href === currentPath
   );
-
-  const activeClass = "text-sky-500 dark:text-sky-400";
-  const defaultClass =
-    "text-slate-700 hover:text-slate-900 dark:text-slate-400 dark:hover:text-slate-300";
 
   const closeDropdown = useCallback(() => {
     setIsOpen(false);
@@ -183,10 +134,13 @@ function NavDropdown({
         aria-expanded={isOpen}
         aria-haspopup="true"
         aria-controls={menuId}
-        className={`nav-item ${hasActiveChild ? "nav-item--active" : ""}`}
+        className={cn(
+          "flex items-center gap-1 transition-colors hover:text-primary",
+          hasActiveChild ? "text-primary" : "text-muted-foreground"
+        )}
       >
         {item.label}
-        <span className="nav-chevron">{isOpen ? "▲" : "▼"}</span>
+        <span className="text-[8px]">{isOpen ? "▲" : "▼"}</span>
       </button>
 
       {isOpen && item.children && (
@@ -195,7 +149,7 @@ function NavDropdown({
           role="menu"
           aria-orientation="vertical"
           aria-labelledby={id}
-          className="dropdown-menu absolute top-full left-0 min-w-[180px] z-50 mt-1"
+          className="absolute top-full left-0 min-w-[140px] z-50 mt-2 py-2 px-3 border rounded-lg bg-card"
         >
           {item.children.map((child, index) => {
             const isActive = child.href === currentPath;
@@ -210,7 +164,10 @@ function NavDropdown({
                 tabIndex={focusedIndex === index ? 0 : -1}
                 onClick={closeDropdown}
                 onKeyDown={(e) => handleMenuKeyDown(e, index)}
-                className={`dropdown-item ${isActive ? "dropdown-item--active" : ""}`}
+                className={cn(
+                  "block py-1 transition-colors hover:text-primary",
+                  isActive ? "text-primary underline underline-offset-2" : "text-muted-foreground"
+                )}
               >
                 ✧ {child.label}
               </Link>
@@ -228,10 +185,6 @@ export function HorizontalNav() {
   const [expandedSections, setExpandedSections] = useState<string[]>([]);
   const mobileMenuRef = useRef<HTMLDivElement>(null);
   const hamburgerRef = useRef<HTMLButtonElement>(null);
-
-  const activeClass = "text-sky-500 dark:text-sky-400";
-  const defaultClass =
-    "text-slate-700 hover:text-slate-900 dark:text-slate-400 dark:hover:text-slate-300";
 
   // Close mobile menu on escape
   useEffect(() => {
@@ -279,7 +232,11 @@ export function HorizontalNav() {
   return (
     <>
       {/* Desktop Navigation */}
-      <nav aria-label="Main navigation" className="site-nav hidden md:flex items-center justify-center gap-1 flex-wrap">
+      <nav
+        aria-label="Main navigation"
+        className="hidden md:flex items-center justify-center gap-8 py-3 px-4 mb-4 font-polished text-px"
+      >
+        <span className="text-muted-foreground">{"["}</span>
         {navItems.map((item, index) => {
           if (item.children) {
             return (
@@ -298,29 +255,29 @@ export function HorizontalNav() {
               key={index}
               href={item.href || "#"}
               aria-current={isActive ? "page" : undefined}
-              className={`nav-item ${isActive ? "nav-item--active" : ""}`}
+              className={cn(
+                "transition-colors hover:text-primary",
+                isActive ? "text-primary underline underline-offset-2" : "text-muted-foreground"
+              )}
             >
               {item.label}
             </Link>
           );
         })}
+        <span className="text-muted-foreground">{"]"}</span>
       </nav>
 
       {/* Mobile Navigation */}
-      <div className="md:hidden flex justify-center">
+      <div className="md:hidden flex justify-center py-3 mb-4">
         <button
           ref={hamburgerRef}
           onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
           aria-expanded={mobileMenuOpen}
           aria-controls="mobile-menu"
           aria-label={mobileMenuOpen ? "Close menu" : "Open menu"}
-          className="hamburger-btn"
+          className="font-polished text-px px-3 py-1 border rounded bg-card text-muted-foreground hover:text-primary transition-colors"
         >
-          {mobileMenuOpen ? (
-            <span className="text-lg">✖</span>
-          ) : (
-            <span className="text-lg">☰</span>
-          )}
+          {mobileMenuOpen ? "[ ✖ close ]" : "[ ☰ menu ]"}
         </button>
 
         {mobileMenuOpen && (
@@ -328,7 +285,7 @@ export function HorizontalNav() {
             id="mobile-menu"
             ref={mobileMenuRef}
             role="menu"
-            className="mobile-menu absolute left-3 right-3 top-full mt-2 py-2 z-50 max-h-[70vh] overflow-y-auto"
+            className="absolute left-4 right-4 top-16 mt-2 py-3 px-4 z-50 max-h-[70vh] overflow-y-auto border rounded-lg bg-card font-polished text-px"
           >
             {navItems.map((item, index) => {
               if (item.children) {
@@ -338,18 +295,21 @@ export function HorizontalNav() {
                 );
 
                 return (
-                  <div key={index} className="px-2 py-1">
+                  <div key={index} className="py-1">
                     <button
                       onClick={() => toggleSection(item.label)}
                       aria-expanded={isExpanded}
-                      className={`nav-item w-full justify-between ${hasActiveChild ? "nav-item--active" : ""}`}
+                      className={cn(
+                        "w-full flex justify-between items-center py-1 transition-colors hover:text-primary",
+                        hasActiveChild ? "text-primary" : "text-muted-foreground"
+                      )}
                     >
                       {item.label}
-                      <span className="nav-chevron">{isExpanded ? "▲" : "▼"}</span>
+                      <span className="text-[8px]">{isExpanded ? "▲" : "▼"}</span>
                     </button>
 
                     {isExpanded && (
-                      <div className="nav-section mt-1">
+                      <div className="pl-3 border-l border-border ml-1 mt-1">
                         {item.children.map((child, childIndex) => {
                           const isActive = child.href === pathname;
                           return (
@@ -359,7 +319,10 @@ export function HorizontalNav() {
                               role="menuitem"
                               aria-current={isActive ? "page" : undefined}
                               onClick={() => setMobileMenuOpen(false)}
-                              className={`dropdown-item ${isActive ? "dropdown-item--active" : ""}`}
+                              className={cn(
+                                "block py-1 transition-colors hover:text-primary",
+                                isActive ? "text-primary underline underline-offset-2" : "text-muted-foreground"
+                              )}
                             >
                               ✧ {child.label}
                             </Link>
@@ -373,13 +336,16 @@ export function HorizontalNav() {
 
               const isActive = item.href === pathname;
               return (
-                <div key={index} className="px-2 py-1">
+                <div key={index} className="py-1">
                   <Link
                     href={item.href || "#"}
                     role="menuitem"
                     aria-current={isActive ? "page" : undefined}
                     onClick={() => setMobileMenuOpen(false)}
-                    className={`nav-item w-full ${isActive ? "nav-item--active" : ""}`}
+                    className={cn(
+                      "block transition-colors hover:text-primary",
+                      isActive ? "text-primary underline underline-offset-2" : "text-muted-foreground"
+                    )}
                   >
                     {item.label}
                   </Link>

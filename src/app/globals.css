@@ -13,7 +13,7 @@
 
 .font-polished {
   font-family: "Polished", monospace;
-  font-size: 10px;
+  /* font-size: 10px; */
   font-smooth: never;
   -webkit-font-smoothing: none;
 }
@@ -175,37 +175,32 @@ html {
 
 
 h1, .h1{
-  font-size: 1.875rem;
-  font-weight: bold;
+  font-size: 40px;
   position: relative;
 }
 
 h2, .h2{
-  font-size: 1.75rem;
-  font-weight: bold;
+  font-size: 30px;
   position: relative;
 }
 
 h3, .h3{
-  font-size: 1.75rem;
+  font-size: 25px;
   font-weight: normal;
   position: relative;
 }
 h4, .h4{
-  font-size: 1.5rem;
-  font-weight: bold;
+  font-size: 20px;
   position: relative;
 }
 
 h5, .h5{
-  font-size: 1.25rem;
-  font-weight: bold;
+  font-size: 18px;
   position: relative;
 }
 
 h6, .h6{
-  font-size: 1rem;
-  font-weight: bold;
+  font-size: 16px;
   position: relative;
 }
 
@@ -238,3 +233,4 @@ h6, .h6{
   image-rendering: -moz-crisp-edges;
   image-rendering: crisp-edges;
 }
+
