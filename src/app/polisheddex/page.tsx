@@ -166,7 +166,7 @@ export default function PolishedDexLanding() {
       <section id="pricing" className="mb-16 scroll-mt-8">
         <h2 className="h2 text-center font-polished">Simple, Transparent Pricing</h2>
         <p className="mb-8 text-center text-muted-foreground">
-          Pay only for what you use. No hidden fees. Cancel anytime.
+          I do not make profit here! Just pay for hosting! If you can&apos;t afford it, let me know and we can work something out.
         </p>
         <div className="grid gap-6 sm:grid-cols-3">
           {tiers.map((tier) => (
