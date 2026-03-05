@@ -49,7 +49,6 @@ const tiers = [
       'Custom ROM feature support',
       'Game-specific calculators',
       'Strategy guides & walkthroughs',
-      'Dedicated support channel',
     ],
     cta: 'Start Free Trial',
     href: '#contact',
@@ -259,7 +258,7 @@ export default function PolishedDexLanding() {
             },
             {
               name: 'Sour Crystal',
-              url: 'https://sour.polisheddex.app',
+              url: 'https://sourcrystal.polisheddex.app',
               description: 'Sour Crystal ROM hack',
             },
             {
