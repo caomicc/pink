@@ -2,6 +2,7 @@ import { Analytics } from '@vercel/analytics/next';
 import type { Metadata, Viewport } from 'next';
 import { DM_Sans } from 'next/font/google';
 import { KofiWidget } from '@/components/kofi-widget';
+import { GoogleAnalytics } from '@/components/google-analytics';
 import './globals.css';
 import { SpeedInsights } from '@vercel/speed-insights/next';
 import { SiteFooter } from '@/components/site-layout';
@@ -125,6 +126,7 @@ export default function RootLayout({
             <SiteFooter />
           </div>
         </div>
+        <GoogleAnalytics />
         <KofiWidget />
         <Analytics />
         <SpeedInsights />
