@@ -104,7 +104,7 @@ const trustSignals = [
 
 export default function PolishedDexLanding() {
   return (
-    <div className="mx-auto w-full max-w-5xl px-4 py-8 sm:px-8 sm:py-16">
+    <div>
       <JsonLd data={getSoftwareApplicationSchema()} />
       <Breadcrumbs items={[{ label: 'PolishedDex' }]} className="mb-6" />
       {/* Hero */}

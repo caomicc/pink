@@ -1,6 +1,7 @@
 import { Analytics } from '@vercel/analytics/next';
 import type { Metadata, Viewport } from 'next';
 import { DM_Sans } from 'next/font/google';
+import { KofiWidget } from '@/components/kofi-widget';
 import './globals.css';
 import { SpeedInsights } from '@vercel/speed-insights/next';
 import { SiteFooter } from '@/components/site-layout';
@@ -109,22 +110,22 @@ export default function RootLayout({
       >
         <div className={cn("@container",
           "flex flex-col mx-auto",
-          'site-wrapper overflow-hidden text-left',
+          'site-wrapper text-left',
           'sm:max-w-5xl'
         )}>
           <HorizontalNav />
           <div className="mx-auto px-4 sm:px-8 w-full flex flex-col items-center gap-8 sm:gap-12">
-            <div className="flex flex-col md:flex-row items-start gap-8 md:gap-12 w-full">
+            <div className="flex flex-col md:flex-row items-start gap-8 md:gap-12 w-full relative">
               <div className="w-full text-left gap-8 flex flex-col">
                 {children}
               </div>
-              <iframe id='kofiframe' src='https://ko-fi.com/caomicc/?hidefeed=true&widget=true&embed=true&preview=true' className="border-none w-full md:w-auto md:min-w-[320px]" height={712} title='caomicc'></iframe>
             </div>
           </div>
           <div className="w-full text-center pt-8">
             <SiteFooter />
           </div>
         </div>
+        <KofiWidget />
         <Analytics />
         <SpeedInsights />
       </body>

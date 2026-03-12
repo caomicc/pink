@@ -52,7 +52,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
   const components = useMDXComponents({});
 
   return (
-    <main className="mx-auto max-w-3xl px-6 py-16">
+    <main>
       <JsonLd data={getBlogPostSchema(post)} />
       <Breadcrumbs
         items={[

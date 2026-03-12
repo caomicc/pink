@@ -1,0 +1,120 @@
+---
+title: "From Assembly Files to 400k Monthly Users: How I Built PolishedDex"
+description: How I turned frustration with outdated Pokémon wikis into an automated database that extracts ROM hack data directly from source code.
+date: 2026-03-12
+tags:
+  - typescript
+  - nextjs
+  - side-project
+  - pokemon
+  - data-engineering
+  - automation
+image: /images/polisheddex-og.png
+---
+
+I was like three hours into a Polished Crystal run — one of the best ROM hacks out there, though I'm probably biased — and I'd alt-tabbed to check stats more than I'd actually battled. Game was great. Finding info about it? Not so much.
+
+"What level does Eevee evolve at?"
+"Where's the Razor Fang again?"
+"Wait is Arbok's Attack 85 or 95 in this version?"
+
+Polished Crystal deserved better docs. And honestly I just wanted to know the answers without digging through Discord. So I thought... what if I just pulled the data myself?
+
+## ROM Hacks Deserve Real Documentation
+
+[Polished Crystal](https://github.com/Rangi42/polishedcrystal) is genuinely incredible. Hundreds of QoL fixes, rebalanced stuff, new mechanics, constant updates. Rangi's put insane work into it. Its basically the best way to play Gen 2 at this point.
+
+But the thing with any actively developed ROM hack — the game updates way faster than anyone can keep a wiki current. That's nobody's fault. Its just how passion projects work.
+
+Most ROM hacks have some combo of:
+- A wiki that volunteers update when they can
+- Google Docs floating around Discord
+- People asking the same questions over and over
+
+And Polished Crystal specifically has two modes — FAITHFUL (closer to vanilla) and POLISHED (modernized stats). Tracking both manually is a lot.
+
+I wanted to help but I didn't want to just become another wiki maintainer who burns out in six months. So I automated it.
+
+## Just Pull It From the Source
+
+ROM hacks are open source. All the data is right there in `.asm` files. Stats, learnsets, evolutions, items, trainer teams. Everything.
+
+```asm
+; data/pokemon/base_stats/charizard.asm
+db 78 ; hp
+db 84 ; atk
+db 78 ; def
+db 109 ; spd
+db 85 ; sat
+db 85 ; sdf
+```
+
+The source code is literally the truth. So why copy numbers into wikis by hand?
+
+I wrote extractors. TypeScript stuff that parses the assembly and spits out JSON:
+
+```bash
+npm run extract:pokemon
+npm run extract:moves
+npm run extract:items
+npm run extract:locations
+```
+
+One command. Whole database updates. No spreadsheets. No typos. Just data from the actual source.
+
+## The Stack
+
+Next.js App Router with server components. Every Pokémon, move, item, location gets its own page. Ends up being like 2,000+ URLs from one extraction.
+
+Pretty straightforward really:
+1. Extractors parse `.asm` files into JSON
+2. Next.js reads JSON at build
+3. Static pages get generated
+4. Push to Vercel
+
+The annoying parts were edge cases. Form variants need to stay grouped under the parent species. Held item drops have this whole thing where common is 50%, rare is 5%, but if its the same item in both slots its 55%. That logic lives in `engine/battle/core.asm` and took me a bit to figure out.
+
+FAITHFUL vs POLISHED was interesting too — conditional blocks like `if DEF(FAITHFUL)` mean I needed to extract both datasets and let users toggle between them.
+
+## Using AI for the Boring Parts
+
+Writing extractors for a new ROM means learning its specific assembly patterns. Tedious.
+
+So I tried using AI to bootstrap them. Show it a sample `.asm` file, explain the pattern, have it write the parsing logic. Doesn't work perfectly but cuts the initial work way down.
+
+I version the prompts in the repo. Basically a playbook for "how to teach an AI to read ROM hack data."
+
+## Results
+
+PolishedDex does like **400k pageviews a month** now. Updates that used to take days happen in minutes.
+
+Best part though? The Discord questions changed.
+
+Used to be: "What's Pikachu's base speed?"
+Now its: "Site says Volt Tackle is at level 50 but I'm at 52 and nothing — is this a bug?"
+
+People trust it enough to report actual bugs. Thats the win.
+
+And because the extractors are modular I've added more ROM hacks:
+- Polished Crystal
+- Pokémon Crystal vanilla
+- Pokémon Red
+- More coming
+
+## What I Learned
+
+**Accurate info is a feature.** Didn't need faster load times or prettier design. Just needed data people could trust.
+
+**Automate if its gonna change.** If the source updates weekly, manual docs will always be wrong. Just automate the boring stuff.
+
+**Side projects teach you things courses don't.** Parsing assembly, programmatic SEO, weird edge cases in game data. None of that was in a tutorial. I learned it because I needed it.
+
+## Whats Next
+
+I'm offering this as a service now for other ROM hack devs. If you've built something and want a real database instead of hoping someone maintains a wiki — [check it out](/polisheddex).
+
+Your players deserve good data. And you should be building your game, not updating spreadsheets.
+
+---
+
+*See it live at [polisheddex.app](https://polisheddex.app) or poke around the [repo](https://github.com/caomicc/polished-dex).*
