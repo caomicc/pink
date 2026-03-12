@@ -1,0 +1,56 @@
+---
+title: Building with Next.js 16
+description: Exploring the latest features in Next.js 16 and how they improve the developer experience.
+date: 2026-03-10
+tags:
+  - nextjs
+  - react
+  - webdev
+---
+
+# Building with Next.js 16
+
+Next.js 16 brings some exciting improvements to the framework. Let's explore what's new.
+
+## The App Router
+
+The App Router has matured significantly. With React 19 support and improved streaming, building dynamic applications has never been easier.
+
+### Key Features
+
+1. **Server Components by Default** — Better performance out of the box
+2. **Improved Caching** — More granular control over data fetching
+3. **Turbopack** — Lightning-fast development builds
+
+## Why I Love It
+
+The developer experience keeps getting better. Here's a simple example of a server component:
+
+```tsx
+export default async function Page() {
+  const data = await fetch('https://api.example.com/posts');
+  const posts = await data.json();
+
+  return (
+    <ul>
+      {posts.map((post) => (
+        <li key={post.id}>{post.title}</li>
+      ))}
+    </ul>
+  );
+}
+```
+
+No `useEffect`, no loading states to manage manually — just clean, straightforward code.
+
+## What's Next?
+
+I'm excited to explore:
+
+- **Partial Prerendering** — Combining static and dynamic content
+- **Server Actions** — Simplified form handling
+- **Improved Image Optimization** — Even faster image loading
+
+---
+
+What features are you most excited about? Let me know!

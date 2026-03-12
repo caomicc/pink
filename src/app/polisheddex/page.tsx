@@ -99,16 +99,7 @@ export default function PolishedDexLanding() {
           moves, items, maps, and sprites directly from your source code - so your players always
           have accurate information.
         </p>
-        <div className="flex flex-wrap justify-center gap-4">
-          <Button asChild size="lg">
-            <Link href="#pricing">See Plans & Pricing</Link>
-          </Button>
-          <Button asChild variant="outline" size="lg">
-            <Link href="https://polisheddex.app" target="_blank">
-              Live Demo <ArrowUpRight className="ml-1 size-4" />
-            </Link>
-          </Button>
-        </div>
+
 
         {/* Trust Signals */}
         <div className="mt-12 flex flex-wrap justify-center gap-8 border-t pt-8">
@@ -163,7 +154,7 @@ export default function PolishedDexLanding() {
       </section>
 
       {/* Pricing */}
-      <section id="pricing" className="mb-16 scroll-mt-8">
+      {/* <section id="pricing" className="mb-16 scroll-mt-8">
         <h2 className="h2 text-center font-polished">Simple, Transparent Pricing</h2>
         <p className="mb-8 text-center text-muted-foreground">
           I do not make profit here! Just pay for hosting! If you can&apos;t afford it, let me know and we can work something out.
@@ -209,7 +200,7 @@ export default function PolishedDexLanding() {
         <p className="mt-4 text-center text-sm text-muted-foreground">
           Need more? Overage pricing: $5 per additional 10k pageviews
         </p>
-      </section>
+      </section> */}
 
       {/* What's Included */}
       <section className="mb-16">

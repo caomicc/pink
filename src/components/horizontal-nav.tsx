@@ -13,7 +13,9 @@ type NavItem = {
 
 const navItems: NavItem[] = [
   { label: "Home", href: "/" },
+  { label: "Contentful", href: "/contentful" },
   { label: "PolishedDex", href: "/polisheddex" },
+  { label: "Blog", href: "/blog" },
 ];
 
 function NavDropdown({
