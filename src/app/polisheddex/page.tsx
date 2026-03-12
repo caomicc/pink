@@ -1,6 +1,25 @@
 import { ArrowUpRight, Check, Clock, Database, RefreshCw, Shield, Users, Zap } from 'lucide-react';
 import Link from 'next/link';
 import { Button } from '@/components/ui/button';
+import { Metadata } from 'next';
+import { generatePageMetadata, getSoftwareApplicationSchema } from '@/lib/seo';
+import { JsonLd } from '@/components/json-ld';
+import { Breadcrumbs } from '@/components/breadcrumbs';
+
+export const metadata: Metadata = generatePageMetadata({
+  title: 'PolishedDex - ROM Hack Database Solution',
+  description:
+    'Automated Pokédex database for ROM hacks. Extract Pokémon stats, moves, items, maps, and sprites directly from your source code. Stop maintaining outdated wikis.',
+  path: '/polisheddex',
+  tags: [
+    'PolishedDex',
+    'ROM hack',
+    'Pokémon database',
+    'Pokédex',
+    'ROM hack wiki',
+    'game database',
+  ],
+});
 
 const tiers = [
   {
@@ -86,6 +105,8 @@ const trustSignals = [
 export default function PolishedDexLanding() {
   return (
     <div className="mx-auto w-full max-w-5xl px-4 py-8 sm:px-8 sm:py-16">
+      <JsonLd data={getSoftwareApplicationSchema()} />
+      <Breadcrumbs items={[{ label: 'PolishedDex' }]} className="mb-6" />
       {/* Hero */}
       <section className="mb-16 text-center">
         <p className="mb-4 text-[10px] uppercase font-polished text-primary">

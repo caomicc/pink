@@ -5,6 +5,9 @@ import { MDXRemote } from 'next-mdx-remote/rsc';
 import { useMDXComponents } from '@/mdx-components';
 import Link from 'next/link';
 import { ArrowLeft } from 'lucide-react';
+import { generatePageMetadata, getBlogPostSchema, SITE_CONFIG } from '@/lib/seo';
+import { JsonLd } from '@/components/json-ld';
+import { Breadcrumbs } from '@/components/breadcrumbs';
 
 interface BlogPostPageProps {
   params: Promise<{ slug: string }>;
@@ -21,21 +24,21 @@ export async function generateMetadata({ params }: BlogPostPageProps): Promise<M
 
   if (!post) {
     return {
-      title: 'Post Not Found | LamLamLam.',
+      title: 'Post Not Found',
+      robots: { index: false, follow: false },
     };
   }
 
-  return {
-    title: `${post.title} | LamLamLam.`,
-    description: post.description,
-    openGraph: {
-      title: post.title,
-      description: post.description,
-      type: 'article',
-      publishedTime: post.date,
-      images: post.image ? [post.image] : undefined,
-    },
-  };
+  return generatePageMetadata({
+    title: post.title,
+    description: post.description || `Read ${post.title} on ${SITE_CONFIG.shortName}'s blog.`,
+    path: `/blog/${slug}`,
+    type: 'article',
+    publishedTime: post.date,
+    modifiedTime: post.date,
+    tags: post.tags,
+    image: post.image,
+  });
 }
 
 export default async function BlogPostPage({ params }: BlogPostPageProps) {
@@ -50,6 +53,14 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
 
   return (
     <main className="mx-auto max-w-3xl px-6 py-16">
+      <JsonLd data={getBlogPostSchema(post)} />
+      <Breadcrumbs
+        items={[
+          { label: 'Blog', href: '/blog' },
+          { label: post.title },
+        ]}
+        className="mb-6"
+      />
       <Link
         href="/blog"
         className="text-meta group mb-8 inline-flex items-center gap-2 hover:text-foreground transition-colors"

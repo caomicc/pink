@@ -1,6 +1,16 @@
-import { Pikachu } from "@/components/lil-pikachu";
-import { ArrowUpRight } from "lucide-react";
-import Link from "next/link";
+import { Pikachu } from '@/components/lil-pikachu';
+import { ArrowUpRight } from 'lucide-react';
+import Link from 'next/link';
+import { Metadata } from 'next';
+import { SITE_CONFIG } from '@/lib/seo';
+
+export const metadata: Metadata = {
+  title: SITE_CONFIG.name,
+  description: SITE_CONFIG.description,
+  alternates: {
+    canonical: SITE_CONFIG.url,
+  },
+};
 
 export default function Home() {
   return (

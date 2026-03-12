@@ -1,11 +1,13 @@
 import { Analytics } from '@vercel/analytics/next';
-import type { Metadata } from 'next';
-import { Funnel_Sans, DM_Sans } from 'next/font/google';
+import type { Metadata, Viewport } from 'next';
+import { DM_Sans } from 'next/font/google';
 import './globals.css';
 import { SpeedInsights } from '@vercel/speed-insights/next';
 import { SiteFooter } from '@/components/site-layout';
 import { HorizontalNav } from '@/components/horizontal-nav';
 import { cn } from '@/lib/utils';
+import { JsonLdMultiple } from '@/components/json-ld';
+import { SITE_CONFIG, getPersonSchema, getWebsiteSchema } from '@/lib/seo';
 
 const bodyFont = DM_Sans({
   variable: '--font-body',
@@ -13,42 +15,82 @@ const bodyFont = DM_Sans({
   weight: ['400', '600', '700', '900'],
 });
 
+export const viewport: Viewport = {
+  themeColor: [
+    { media: '(prefers-color-scheme: light)', color: '#ffffff' },
+    { media: '(prefers-color-scheme: dark)', color: '#0a0a0a' },
+  ],
+  width: 'device-width',
+  initialScale: 1,
+};
 
 export const metadata: Metadata = {
-  title: 'LamLamLam.',
-  description:
-    'Oh, hello',
-  metadataBase: new URL('https://caomi.cc'),
+  title: {
+    default: SITE_CONFIG.name,
+    template: `%s | ${SITE_CONFIG.shortName}`,
+  },
+  description: SITE_CONFIG.description,
+  keywords: [
+    'front-end developer',
+    'web developer',
+    'React developer',
+    'Next.js developer',
+    'TypeScript',
+    'Tailwind CSS',
+    'UI/UX',
+    'portfolio',
+  ],
+  authors: [{ name: SITE_CONFIG.author.name, url: SITE_CONFIG.url }],
+  creator: SITE_CONFIG.author.name,
+  publisher: SITE_CONFIG.author.name,
+  metadataBase: new URL(SITE_CONFIG.url),
+  alternates: {
+    canonical: SITE_CONFIG.url,
+  },
   openGraph: {
-    title: 'LamLamLam.',
-    description:
-      'Oh, hello',
-    url: 'https://caomi.cc',
-    siteName: 'LamLamLam.',
+    title: SITE_CONFIG.name,
+    description: SITE_CONFIG.description,
+    url: SITE_CONFIG.url,
+    siteName: SITE_CONFIG.name,
     images: [
       {
         url: '/og.png',
         width: 1200,
         height: 630,
-        alt: 'LamLamLam.',
+        alt: SITE_CONFIG.name,
       },
     ],
-    locale: 'en_US',
+    locale: SITE_CONFIG.locale,
     type: 'website',
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'LamLamLam.',
-    description:
-      'Oh, hello',
-    site: '@caomi_cc',
-    creator: '@caomi_cc',
+    title: SITE_CONFIG.name,
+    description: SITE_CONFIG.description,
+    site: SITE_CONFIG.twitterHandle,
+    creator: SITE_CONFIG.twitterHandle,
     images: ['/og.png'],
   },
   icons: {
     icon: '/favicon.ico',
     shortcut: '/favicon.ico',
     apple: '/apple-touch-icon.png',
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-video-preview': -1,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+    },
+  },
+  verification: {
+    // Add your verification codes here when you have them
+    // google: 'your-google-verification-code',
+    // yandex: 'your-yandex-verification-code',
   },
 };
 
@@ -59,6 +101,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+      <head>
+        <JsonLdMultiple schemas={[getPersonSchema(), getWebsiteSchema()]} />
+      </head>
       <body
         className={`${bodyFont.className} ${bodyFont.variable} antialiased page-bg py-4`}
       >

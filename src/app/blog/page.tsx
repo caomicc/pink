@@ -1,21 +1,29 @@
 import { getBlogPosts } from '@/lib/blog';
 import { Metadata } from 'next';
 import Link from 'next/link';
+import { generatePageMetadata, getBlogListSchema } from '@/lib/seo';
+import { JsonLd } from '@/components/json-ld';
+import { Breadcrumbs } from '@/components/breadcrumbs';
 
-export const metadata: Metadata = {
-  title: 'Blog | LamLamLam.',
-  description: 'Thoughts, ideas, and explorations.',
-};
+export const metadata: Metadata = generatePageMetadata({
+  title: 'Blog',
+  description:
+    'Thoughts, ideas, and explorations on web development, React, Next.js, and frontend engineering.',
+  path: '/blog',
+  tags: ['blog', 'web development', 'React', 'Next.js', 'TypeScript', 'frontend'],
+});
 
 export default function BlogPage() {
   const posts = getBlogPosts();
 
   return (
     <main className="">
+      <JsonLd data={getBlogListSchema(posts)} />
+      <Breadcrumbs items={[{ label: 'Blog' }]} className="mb-6" />
       <header className="mb-12">
         <h1 className="">Blog</h1>
         <p className="text-lead mt-4">
-          Thoughts, ideas, and explorations.
+          Thoughts, ideas, and explorations on web development.
         </p>
       </header>
 
