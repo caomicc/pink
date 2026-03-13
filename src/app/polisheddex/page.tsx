@@ -96,11 +96,11 @@ const features = [
   },
 ];
 
-const trustSignals = [
-  { icon: Users, stat: '330k', label: 'Monthly Pageviews' },
-  { icon: Clock, stat: '100+', label: 'Hours Saved Per Month' },
-  { icon: Shield, stat: '99.9%', label: 'Data Accuracy' },
-];
+// const trustSignals = [
+//   { icon: Users, stat: '330k', label: 'Monthly Pageviews' },
+//   { icon: Clock, stat: '100+', label: 'Hours Saved Per Month' },
+
+// ];
 
 export default function PolishedDexLanding() {
   return (
@@ -123,7 +123,7 @@ export default function PolishedDexLanding() {
 
 
         {/* Trust Signals */}
-        <div className="mt-12 flex flex-wrap justify-center gap-8 border-t pt-8">
+        {/* <div className="mt-12 flex flex-wrap justify-center gap-8 border-t pt-8">
           {trustSignals.map((signal) => (
             <div key={signal.label} className="text-center">
               <signal.icon className="mx-auto mb-2 size-5 text-muted-foreground" />
@@ -131,7 +131,7 @@ export default function PolishedDexLanding() {
               <p className="text-xs text-muted-foreground">{signal.label}</p>
             </div>
           ))}
-        </div>
+        </div> */}
       </section>
 
       {/* Problem/Solution */}
@@ -256,7 +256,7 @@ export default function PolishedDexLanding() {
 
 
       {/* Live Sites */}
-      <section className="mb-16">
+      {/* <section className="mb-16">
         <h2 className="h2 text-center font-polished mb-2">Trusted by ROM Hackers</h2>
         <p className="mb-8 text-center text-muted-foreground">
           See PolishedDex in action on these live community databases
@@ -304,14 +304,14 @@ export default function PolishedDexLanding() {
             </Link>
           ))}
         </div>
-      </section>
+      </section> */}
 
       {/* CTA */}
       <section
         id="contact"
         className="scroll-mt-8 rounded-lg border bg-gradient-to-br from-primary/10 to-transparent p-6 text-center sm:p-8"
       >
-        <h2 className="h2 font-polished mb-2">Launch Your Database in 48 Hours</h2>
+        <h2 className="h2 font-polished mb-2">Launch Your Game Documentation!</h2>
         <p className="mx-auto mb-6 max-w-xl text-muted-foreground">
           Send your ROM hack name and GitHub repo link. I&apos;ll review your
           project for compatibility and have your live database ready within 2 days.
@@ -319,13 +319,10 @@ export default function PolishedDexLanding() {
         <div className="flex flex-wrap justify-center gap-4">
           <Button asChild size="lg">
             <Link href="mailto:caomicc@gmail.com?subject=PolishedDex%20Inquiry%20-%20[Your%20ROM%20Name]">
-              Get Your Free Quote
+              Let's chat!
             </Link>
           </Button>
         </div>
-        <p className="mt-4 text-xs text-muted-foreground">
-          No commitment required. Free compatibility check included.
-        </p>
       </section>
 
 
