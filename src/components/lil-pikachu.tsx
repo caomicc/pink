@@ -1,6 +1,6 @@
 export const Pikachu = () => {
   return (
-    <div className="rounded-lg overflow-hidden border border-lime-800 w-full sm:max-w-1/3 float-left mb-4 sm:mr-4">
+    <div className="rounded-lg overflow-hidden border border-lime-800 w-full sm:max-w-1/3 float-left mb-8 sm:mr-8">
       <div
         className="relative flex-1 w-full bg-white aspect-square max-w-full flex flex-col rendering-pixelated specimen-dots"
       >
