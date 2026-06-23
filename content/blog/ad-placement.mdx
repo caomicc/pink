@@ -1,6 +1,6 @@
 ---
-title: "Why I Dropped AdSense for a Premium Ad Partner"
-description: AdSense was leaving money on the table and hurting UX. Here's why I switched to a managed ad provider and how I think about placement on a high-traffic reference site.
+title: "What I Learned About Ads by Getting Them Wrong First"
+description: I went from AdSense auto-placement chaos to intentional ad design. Here's what changed when I started treating ads as part of the user experience instead of an afterthought.
 date: 2026-03-12
 tags:
   - monetization
@@ -10,7 +10,7 @@ tags:
 image: /images/polisheddex-og.png
 ---
 
-# Why I Dropped AdSense for a Premium Ad Partner
+# What I Learned About Ads by Getting Them Wrong First
 
 When I first launched PolishedDex, ads weren't even on my radar. The site was a side project — something I built because I wanted better docs for the ROM hacks I was playing. No revenue model, no plan. Just a thing I made.
 
@@ -20,41 +20,33 @@ It was fine. For a while.
 
 ---
 
-## Where AdSense Started Falling Apart
+## Where It Started Going Wrong
 
-As traffic grew, AdSense went from "fine" to actively working against me:
+The problem wasn't that I had ads. It was that I'd handed all control to Google and stopped thinking about it:
 
-- **Low CPMs.** AdSense's open auction doesn't compete well against premium demand. For a niche gaming audience with high engagement, I was being massively underpaid.
-- **No layout control.** Auto ads would inject units in random spots — between table rows, inside navigation, mid-sentence. Horrible for a site where people need to scan data quickly.
-- **CLS nightmares.** Ads loading late would shove content around. On a database site where people are comparing stats side-by-side, layout shift is unacceptable.
-- **One-size-fits-all.** No ability to treat a dense stat page differently from a long-form guide page.
+- **Auto ads injected everywhere.** Between table rows, inside navigation, mid-sentence. On a site where people need to scan data quickly, this was actively hostile.
+- **CLS nightmares.** Ads loading late would shove content around. On a database site where people are comparing stats side-by-side, layout shift destroys the experience.
+- **One-size-fits-all.** No ability to treat a dense stat page differently from a long-form guide. Every page got the same ad firehose.
 
-I spent more time fighting AdSense's auto-placement than actually improving the site. And I started to realize — this wasn't a configuration problem. I'd outgrown it.
-
----
-
-## Making the Switch
-
-I'd been putting off looking into alternatives because AdSense was "good enough" and switching felt like a big commitment. But once I started researching managed ad partners — the kind that require a traffic threshold to join — I realized how much I'd been leaving on the table.
-
-The difference once I actually made the switch:
-
-- **Header bidding with premium demand.** Multiple ad exchanges compete in real-time instead of Google's single auction. CPMs jumped immediately.
-- **Full placement control.** I decide exactly where units go in the DOM. No auto-injection, no surprises.
-- **Lazy loading built in.** Ads below the fold don't load until they're actually approaching the viewport. Better performance, better viewability scores, better revenue.
-- **Dedicated support.** Someone who actually looks at my site and suggests layout optimizations specific to reference content.
-
-The tradeoff is less automation — I have to be intentional about where ads go. But that's actually the point.
+I wasn't thinking about ads as part of the experience. I was treating them like something I could set and forget. And the site suffered for it.
 
 ---
 
-## Learning to Think About Placement
+## The Real Lesson: Ads Need Design Too
 
-With full control came a new problem: I actually had to decide where ads go. No more "let Google figure it out."
+Switching providers wasn't really about money — it was about getting control back. I moved to a managed partner that lets me decide exactly where units go in the DOM. No auto-injection, no surprises.
 
-People come to PolishedDex with a specific question: "What level does this evolve?" or "Where do I find this item?" Every pixel between them and that answer is friction. So I had to figure out a philosophy pretty quickly.
+But the provider switch was just the mechanism. The actual shift was in how I started thinking:
 
-So the rule is simple: **ads never interrupt the primary lookup flow.**
+**Ads are a design problem, not just a revenue toggle.** They take up space, they affect layout, they compete with content for attention. Treating them as "someone else's problem" meant my users were dealing with a worse site.
+
+Once I started approaching placement intentionally — asking "does this ad hurt the user's ability to find what they came for?" — everything improved. Not just metrics, but how the site *felt*.
+
+---
+
+## What Intentional Placement Looks Like
+
+People come to PolishedDex with a specific question: "What level does this evolve?" or "Where do I find this item?" Every pixel between them and that answer is friction. So the rule became simple: **ads never interrupt the primary lookup flow.**
 
 Where they do go:
 
@@ -65,28 +57,28 @@ Where they do go:
 
 What I don't do: interstitials, sticky footers that cover content, auto-playing video, or anything that makes the site feel hostile.
 
+None of this is rocket science. But it requires actually *deciding* — which is the thing AdSense's auto-placement lets you avoid.
+
 ---
 
-## Was It Worth It?
+## What Changed
 
-Honestly? I wish I'd done it sooner. The switch paid for itself almost immediately:
+The biggest difference wasn't in revenue. It was in how the site felt to use:
 
-- Revenue per session more than doubled compared to AdSense
 - Core Web Vitals improved because I control when and where ads render
 - Bounce rate didn't change — meaning the ads aren't driving people away
-- I actually get paid what the traffic is worth instead of whatever Google's auction decides
+- I stopped getting messages from users about ads breaking the layout
+- The site feels intentional instead of cluttered
 
-The biggest lesson from this whole journey: AdSense optimizes for Google's revenue, not yours. Once you have the traffic to qualify for a premium partner, there's almost no reason to stay.
+Revenue did improve too — but that was a side effect of treating ads like a real part of the UX instead of garbage dumped on top of it.
 
 ---
 
-## What I'd Tell Past Me
+## The Takeaway
 
-If you're running a content site with real traffic and you're still on AdSense by default — look into alternatives. The threshold to join a managed partner is usually 50-100k monthly pageviews. Once you're past that, you're probably leaving 2-3x revenue on the table.
+If you're running ads on a content site and you've just been letting auto-placement do its thing — take an hour and actually look at what your users see. Open your own site on mobile. Try to find a piece of information with fresh eyes.
 
-I put it off for months because it felt like a big deal. It wasn't. The integration took a day, the results were immediate, and I got back time I was spending fighting auto-placement to spend on actually building features.
-
-And if your site is a reference tool where people need to find information fast — placement discipline matters more than fill rate. Users don't mind ads. They mind ads that get between them and the answer they came for.
+The problem usually isn't "too many ads." It's "ads with no thought behind their placement." Once you start treating them as a design decision — same as font size or spacing or color — the whole experience gets better. For everyone.
 
 ---
 
