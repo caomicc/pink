@@ -61,7 +61,8 @@
   /* Font Families */
   --font-sans: var(--font-body);
   --font-mono: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, monospace;
-  --font-display: var(--font-polished);
+  --font-display: var(--font-display), Georgia, serif;
+  --font-pixel: var(--font-polished);
 
   /* Type Scale (Major Third - 1.25 ratio) */
   --text-xs: 0.75rem;      /* 12px */
@@ -112,24 +113,26 @@
   /* Font family */
   --font-polished: 'Polished', monospace;
   --radius: 0.625rem;
-  --background: var(--color-zinc-100);
-  --foreground: oklch(0.147 0.004 49.25);
+
+  /* Soft-retro pink palette (warm rose-tinted neutrals, raspberry primary) */
+  --background: oklch(0.975 0.008 350);
+  --foreground: oklch(0.25 0.04 345);
   --card: oklch(1 0 0);
-  --card-foreground: oklch(0.147 0.004 49.25);
+  --card-foreground: oklch(0.25 0.04 345);
   --popover: oklch(1 0 0);
-  --popover-foreground: oklch(0.147 0.004 49.25);
-  --primary: oklch(0.216 0.006 56.043);
-  --primary-foreground: oklch(0.985 0.001 106.423);
-  --secondary: oklch(0.97 0.001 106.424);
-  --secondary-foreground: oklch(0.216 0.006 56.043);
-  --muted: oklch(0.97 0.001 106.424);
-  --muted-foreground: oklch(0.553 0.013 58.071);
-  --accent: oklch(0.97 0.001 106.424);
-  --accent-foreground: oklch(0.216 0.006 56.043);
+  --popover-foreground: oklch(0.25 0.04 345);
+  --primary: oklch(0.58 0.19 356);
+  --primary-foreground: oklch(0.985 0.005 350);
+  --secondary: oklch(0.945 0.02 350);
+  --secondary-foreground: oklch(0.32 0.05 345);
+  --muted: oklch(0.95 0.015 350);
+  --muted-foreground: oklch(0.5 0.035 345);
+  --accent: oklch(0.93 0.03 350);
+  --accent-foreground: oklch(0.32 0.05 345);
   --destructive: oklch(0.577 0.245 27.325);
-  --border: oklch(0.923 0.003 48.717);
-  --input: oklch(0.923 0.003 48.717);
-  --ring: oklch(0.709 0.01 56.259);
+  --border: oklch(0.885 0.025 350);
+  --input: oklch(0.885 0.025 350);
+  --ring: oklch(0.58 0.19 356);
   --chart-1: oklch(0.646 0.222 41.116);
   --chart-2: oklch(0.6 0.118 184.704);
   --chart-3: oklch(0.398 0.07 227.392);
@@ -146,24 +149,25 @@
 }
 
 .dark {
-  --background: var(--blue-violet-100);
-  --foreground: oklch(0.985 0.001 106.423);
-  --card: oklch(0.216 0.006 56.043);
-  --card-foreground: oklch(0.985 0.001 106.423);
-  --popover: oklch(0.216 0.006 56.043);
-  --popover-foreground: oklch(0.985 0.001 106.423);
-  --primary: oklch(0.923 0.003 48.717);
-  --primary-foreground: oklch(0.216 0.006 56.043);
-  --secondary: oklch(0.268 0.007 34.298);
-  --secondary-foreground: oklch(0.985 0.001 106.423);
-  --muted: oklch(0.268 0.007 34.298);
-  --muted-foreground: oklch(0.709 0.01 56.259);
-  --accent: oklch(0.268 0.007 34.298);
-  --accent-foreground: oklch(0.985 0.001 106.423);
+  /* Warm plum dark mode */
+  --background: oklch(0.22 0.03 330);
+  --foreground: oklch(0.96 0.01 350);
+  --card: oklch(0.265 0.035 330);
+  --card-foreground: oklch(0.96 0.01 350);
+  --popover: oklch(0.265 0.035 330);
+  --popover-foreground: oklch(0.96 0.01 350);
+  --primary: oklch(0.78 0.13 352);
+  --primary-foreground: oklch(0.24 0.05 345);
+  --secondary: oklch(0.31 0.035 332);
+  --secondary-foreground: oklch(0.96 0.01 350);
+  --muted: oklch(0.31 0.035 332);
+  --muted-foreground: oklch(0.73 0.03 345);
+  --accent: oklch(0.34 0.045 335);
+  --accent-foreground: oklch(0.96 0.01 350);
   --destructive: oklch(0.704 0.191 22.216);
-  --border: oklch(1 0 0 / 10%);
+  --border: oklch(1 0 0 / 12%);
   --input: oklch(1 0 0 / 15%);
-  --ring: oklch(0.553 0.013 58.071);
+  --ring: oklch(0.78 0.13 352);
   --chart-1: oklch(0.488 0.243 264.376);
   --chart-2: oklch(0.696 0.17 162.48);
   --chart-3: oklch(0.769 0.188 70.08);
@@ -198,44 +202,47 @@
     line-height: var(--leading-normal);
   }
 
-  /* Typography Scale */
+  /* Typography Scale
+     h1/h2 use the display serif (Instrument Serif, 400 only) —
+     it reads smaller than a bold sans, so sizes step up one notch. */
   h1, .h1 {
-    font-size: var(--text-4xl);
-    line-height: var(--leading-tight);
-    font-weight: var(--font-bold);
-    letter-spacing: var(--tracking-tight);
-
+    /* font-family: var(--font-display); */
+    font-size: var(--text-5xl);
+    /* line-height: var(--leading-tight); */
+    /* font-weight: var(--font-normal); */
+    /* letter-spacing: var(--tracking-tight); */
   }
 
   h2, .h2 {
-    font-size: var(--text-3xl);
-    line-height: var(--leading-tight);
-    font-weight: var(--font-semibold);
-    letter-spacing: var(--tracking-tight);
+    font-family: var(--font-display);
+    /* font-size: var(--text-4xl); */
+    /* line-height: var(--leading-tight); */
+    /* font-weight: var(--font-normal); */
+    /* letter-spacing: var(--tracking-tight); */
   }
 
   h3, .h3 {
     font-size: var(--text-2xl);
-    line-height: var(--leading-snug);
-    font-weight: var(--font-semibold);
+    /* line-height: var(--leading-snug); */
+    /* font-weight: var(--font-semibold); */
   }
 
   h4, .h4 {
     font-size: var(--text-xl);
-    line-height: var(--leading-snug);
-    font-weight: var(--font-medium);
+    /* line-height: var(--leading-snug); */
+    /* font-weight: var(--font-medium); */
   }
 
   h5, .h5 {
     font-size: var(--text-lg);
-    line-height: var(--leading-normal);
-    font-weight: var(--font-medium);
+    /* line-height: var(--leading-normal); */
+    /* font-weight: var(--font-medium); */
   }
 
   h6, .h6 {
-    font-size: var(--text-base);
-    line-height: var(--leading-normal);
-    font-weight: var(--font-medium);
+    /* font-size: var(--text-base); */
+    /* line-height: var(--leading-normal); */
+    /* font-weight: var(--font-medium); */
   }
 
   /* Paragraph defaults */
@@ -272,25 +279,28 @@
 
 /* Display heading - for hero sections */
 .text-display {
-  font-size: clamp(var(--text-4xl), 8vw, var(--text-6xl));
+  font-family: var(--font-display);
+  font-size: clamp(var(--text-3xl), 9vw, var(--text-5xl));
   line-height: var(--leading-none);
   font-weight: var(--font-bold);
-  letter-spacing: var(--tracking-tighter);
+  letter-spacing: var(--tracking-tight);
 }
 
 /* Page title */
 .text-page-title {
-  font-size: var(--text-4xl);
+  font-family: var(--font-display);
+  font-size: var(--text-5xl);
   line-height: var(--leading-tight);
-  font-weight: var(--font-bold);
+  font-weight: var(--font-normal);
   letter-spacing: var(--tracking-tight);
 }
 
 /* Section title */
 .text-section-title {
-  font-size: var(--text-2xl);
+  font-family: var(--font-display);
+  font-size: var(--text-3xl);
   line-height: var(--leading-tight);
-  font-weight: var(--font-semibold);
+  font-weight: var(--font-normal);
 }
 
 /* Card title */
@@ -561,6 +571,50 @@
   100% {
     transform: translateX(-50%);
   }
+}
+
+/* ===== SOFT-RETRO SITE CHROME ===== */
+
+/* Dotted rose backdrop behind the site card */
+.page-bg {
+  background-color: oklch(0.93 0.03 350);
+  background-image: url(/images/dots.svg);
+  background-size: 4px 4px;
+}
+
+.dark .page-bg {
+  background-color: oklch(0.17 0.025 330);
+}
+
+/* The whole site sits on one raised surface with a hard offset shadow */
+.site-wrapper {
+  background: var(--background);
+  border: 1px solid var(--foreground);
+  border-radius: 24px;
+  box-shadow: 6px 6px 0 0 var(--foreground);
+  overflow: hidden;
+  padding-bottom: 1rem;
+}
+
+/* Pixel wordmark */
+.site-title-90s {
+  font-family: var(--font-pixel);
+  font-smooth: never;
+  -webkit-font-smoothing: none;
+  font-size: 20px;
+  color: var(--primary);
+}
+
+/* Dashed pixel divider */
+.pixel-divider {
+  width: 8rem;
+  margin: 0.75rem auto;
+  border-top: 2px dashed var(--border);
+}
+
+/* Hard offset shadow for cards/buttons that want the retro pop */
+.shadow-retro {
+  box-shadow: 4px 4px 0 0 var(--border);
 }
 
 .specimen-dots {

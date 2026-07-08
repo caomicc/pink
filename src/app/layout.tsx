@@ -1,6 +1,6 @@
 import { Analytics } from '@vercel/analytics/next';
 import type { Metadata, Viewport } from 'next';
-import { DM_Sans } from 'next/font/google';
+import { Nunito, DM_Sans } from 'next/font/google';
 import { KofiWidget } from '@/components/kofi-widget';
 import { GoogleAnalytics } from '@/components/google-analytics';
 import './globals.css';
@@ -11,16 +11,22 @@ import { cn } from '@/lib/utils';
 import { JsonLdMultiple } from '@/components/json-ld';
 import { SITE_CONFIG, getPersonSchema, getWebsiteSchema } from '@/lib/seo';
 
-const bodyFont = DM_Sans({
+const bodyFont = Nunito({
   variable: '--font-body',
   subsets: ['latin'],
-  weight: ['400', '600', '700', '900'],
+});
+
+const displayFont = DM_Sans({
+  variable: '--font-display',
+  subsets: ['latin'],
+  weight: '400',
+  style: ['normal', 'italic'],
 });
 
 export const viewport: Viewport = {
   themeColor: [
-    { media: '(prefers-color-scheme: light)', color: '#ffffff' },
-    { media: '(prefers-color-scheme: dark)', color: '#0a0a0a' },
+    { media: '(prefers-color-scheme: light)', color: '#f7e8ef' },
+    { media: '(prefers-color-scheme: dark)', color: '#241a21' },
   ],
   width: 'device-width',
   initialScale: 1,
@@ -54,14 +60,6 @@ export const metadata: Metadata = {
     description: SITE_CONFIG.description,
     url: SITE_CONFIG.url,
     siteName: SITE_CONFIG.name,
-    images: [
-      {
-        url: '/og.png',
-        width: 1200,
-        height: 630,
-        alt: SITE_CONFIG.name,
-      },
-    ],
     locale: SITE_CONFIG.locale,
     type: 'website',
   },
@@ -71,7 +69,6 @@ export const metadata: Metadata = {
     description: SITE_CONFIG.description,
     site: SITE_CONFIG.twitterHandle,
     creator: SITE_CONFIG.twitterHandle,
-    images: ['/og.png'],
   },
   icons: {
     icon: '/favicon.ico',
@@ -107,7 +104,7 @@ export default function RootLayout({
         <JsonLdMultiple schemas={[getPersonSchema(), getWebsiteSchema()]} />
       </head>
       <body
-        className={`${bodyFont.className} ${bodyFont.variable} antialiased page-bg py-4`}
+        className={`${bodyFont.className} ${bodyFont.variable} ${displayFont.variable} antialiased page-bg py-4`}
       >
         <div className={cn("@container",
           "flex flex-col mx-auto",

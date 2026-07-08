@@ -4,7 +4,7 @@ export const SITE_CONFIG = {
   name: 'Cammy | Front-End Developer',
   shortName: 'Cammy',
   description:
-    'Front-end developer specializing in React, Next.js, and TypeScript. Building beautiful, performant web experiences.',
+    'Cammy is a front-end developer building fun, useful websites with React, Next.js, and TypeScript — from enterprise marketing sites to PolishedDex, a data-mined Pokédex.',
   url: 'https://caomi.cc',
   locale: 'en_US',
   twitterHandle: '@caomi_cc',
@@ -36,7 +36,7 @@ export function generatePageMetadata({
   title,
   description,
   path = '',
-  image = '/og.png',
+  image,
   type = 'website',
   publishedTime,
   modifiedTime,
@@ -62,14 +62,18 @@ export function generatePageMetadata({
       description,
       url,
       siteName: SITE_CONFIG.name,
-      images: [
-        {
-          url: image,
-          width: 1200,
-          height: 630,
-          alt: title,
-        },
-      ],
+      // When no image is passed, omit it so the generated
+      // app/opengraph-image.tsx is used instead.
+      ...(image && {
+        images: [
+          {
+            url: image,
+            width: 1200,
+            height: 630,
+            alt: title,
+          },
+        ],
+      }),
       locale: SITE_CONFIG.locale,
       type,
       ...(type === 'article' && {
@@ -85,7 +89,7 @@ export function generatePageMetadata({
       description,
       site: SITE_CONFIG.twitterHandle,
       creator: SITE_CONFIG.twitterHandle,
-      images: [image],
+      ...(image && { images: [image] }),
     },
     robots: noIndex
       ? { index: false, follow: false }

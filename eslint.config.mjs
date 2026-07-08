@@ -1,19 +1,18 @@
-import nextCoreWebVitals from "eslint-config-next/core-web-vitals";
-import nextTypescript from "eslint-config-next/typescript";
-import { dirname } from 'path';
-import { fileURLToPath } from 'url';
+import nextCoreWebVitals from 'eslint-config-next/core-web-vitals';
+import nextTypescript from 'eslint-config-next/typescript';
+import eslintConfigPrettier from 'eslint-config-prettier';
 
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = dirname(__filename);
-
-const eslintConfig = [...nextCoreWebVitals, ...nextTypescript, {
-  plugins: ['prettier'],
-  extends: ['plugin:prettier/recommended'],
-  rules: {
-    'prettier/prettier': 'error',
+const eslintConfig = [
+  ...nextCoreWebVitals,
+  ...nextTypescript,
+  eslintConfigPrettier,
+  {
+    ignores: ['node_modules/**', '.next/**', 'out/**', 'build/**', 'next-env.d.ts'],
+    rules: {
+      'react-hooks/set-state-in-effect': 'off',
+      'prefer-const': 'off',
+    },
   },
-}, {
-  ignores: ["node_modules/**", ".next/**", "out/**", "build/**", "next-env.d.ts"]
-}];
+];
 
 export default eslintConfig;

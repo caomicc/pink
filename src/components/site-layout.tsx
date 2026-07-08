@@ -2,13 +2,6 @@
 
 import Link from 'next/link';
 
-// Fake 88x31 buttons - you can replace these with actual images later
-const buttons = [
-  { label: 'HTML', color: 'pink', href: '#' },
-  { label: 'CSS', color: 'purple', href: '#' },
-  { label: '♥ MADE WITH LOVE', color: 'rainbow', href: '#' },
-];
-
 export function SiteHeader() {
   return (
     <div className="site-header">

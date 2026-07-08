@@ -25,6 +25,7 @@ const navItems: NavItem[] = [
     isSection: true,
     children: [
       { label: "PolishedDex", href: "/polisheddex" },
+      { label: "Products", href: "/products" },
       { label: "Art", href: "/art" },
     ],
   },

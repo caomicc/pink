@@ -2,7 +2,7 @@ import { getBlogPost, getAllBlogSlugs } from '@/lib/blog';
 import { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import { MDXRemote } from 'next-mdx-remote/rsc';
-import { useMDXComponents } from '@/mdx-components';
+import { useMDXComponents as getMDXComponents } from '@/mdx-components';
 import Link from 'next/link';
 import { ArrowLeft } from 'lucide-react';
 import { generatePageMetadata, getBlogPostSchema, SITE_CONFIG } from '@/lib/seo';
@@ -49,7 +49,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
     notFound();
   }
 
-  const components = useMDXComponents({});
+  const components = getMDXComponents({});
 
   return (
     <main>
