@@ -29,6 +29,15 @@ const products: ProductCardData[] = [
     price: '$9',
     gumroadHref: 'https://caomicc.gumroad.com/l/beautiful-readme-kit',
   },
+  {
+    name: 'Marketing Landing Page QA Actor',
+    description:
+      'An Apify Actor for pre-launch QA of marketing landing pages that flags blockers like missing forms, tracking gaps, broken links, SEO issues, and accessibility smoke problems with screenshot evidence.',
+    status: 'Available',
+    category: 'Apify Actor',
+    price: 'Usage-based',
+    gumroadHref: 'https://apify.com/caomicc/marketing-landing-page-qa-actor',
+  },
 ];
 
 export default function ProductsPage() {
