@@ -104,12 +104,12 @@ export default function RootLayout({
         <JsonLdMultiple schemas={[getPersonSchema(), getWebsiteSchema()]} />
       </head>
       <body
-        className={`${bodyFont.className} ${bodyFont.variable} ${displayFont.variable} antialiased page-bg py-4`}
+        className={`${bodyFont.className} ${bodyFont.variable} ${displayFont.variable} antialiased page-bg py-4 px-4`}
       >
         <div className={cn("@container",
           "flex flex-col mx-auto",
           'site-wrapper text-left',
-          'sm:max-w-5xl'
+          'sm:max-w-5xl',
         )}>
           <HorizontalNav />
           <div className="mx-auto px-4 sm:px-8 w-full flex flex-col items-center gap-8 sm:gap-12">

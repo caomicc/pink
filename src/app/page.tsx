@@ -62,10 +62,10 @@ export default function Home() {
           TypeScript, with a soft spot for UI/UX and pixel-perfect details.
         </p>
         <div className="mt-6 flex flex-wrap gap-3">
-          <Button asChild>
+          {/* <Button asChild>
             <Link href="#work">See my work</Link>
-          </Button>
-          <Button asChild variant="outline">
+          </Button> */}
+          <Button asChild variant="default">
             <a href="mailto:caomicc@gmail.com">
               <Mail className="size-4" />
               Email me
@@ -83,7 +83,7 @@ export default function Home() {
           profile pages turned into a career in front-end development and
           UI/UX.
         </p>
-        <p className="mb-4 text-xl">
+        <p className="text-xl">
           I have shipped websites for state-funded transportation authorities,
           country clubs, universities, enterprise software companies, and small
           community organizations. At the end of the day, though, my favorite
@@ -93,7 +93,7 @@ export default function Home() {
       </section>
 
       {/* Featured work */}
-      <section id="work" aria-labelledby="featured-work">
+      {/* <section id="work" aria-labelledby="featured-work">
         <p className="mb-3 text-px uppercase font-polished text-primary">
           Selected work
         </p>
@@ -143,13 +143,12 @@ export default function Home() {
           ))}
         </div>
 
-        {/* Client logos */}
         <div className="mt-8">
           <p className="mb-4 text-px uppercase font-polished text-muted-foreground">
             Brands I&apos;ve built for
           </p>
           <div className="flex flex-wrap items-center gap-x-10 gap-y-4 opacity-70">
-            {/* {clientLogos.map((logo) => (
+            {clientLogos.map((logo) => (
               // eslint-disable-next-line @next/next/no-img-element
               <img
                 key={logo.alt}
@@ -157,12 +156,10 @@ export default function Home() {
                 alt={logo.alt}
                 className="h-8 w-auto"
               />
-            ))} */}
-
-            ee
+            ))}
           </div>
         </div>
-      </section>
+      </section> */}
 
       {/* Products + blog teasers */}
       <section aria-label="More around the site">

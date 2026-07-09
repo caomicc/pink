@@ -21,31 +21,13 @@ const products: ProductCardData[] = [
     price: 'TBA',
   },
   {
-    name: 'Frontend Launch Checklist',
+    name: 'The Beautiful README Kit',
     description:
-      'A practical checklist for shipping small Next.js sites with the pieces that are easy to forget: SEO, analytics, accessibility, performance, and launch polish.',
-    status: 'Available soon',
+      'Templates, examples, and a practical guide for turning any GitHub repository into a polished, professional project page.',
+    status: 'Available',
     category: 'Digital download',
     price: '$9',
-    gumroadHref: 'https://gumroad.com/',
-  },
-  {
-    name: 'Indie Site Starter Kit',
-    description:
-      'A tiny personal-site starter focused on readable content, clear navigation, and a structure that can grow into blogs, products, and project pages.',
-    status: 'Idea',
-    category: 'Template',
-    price: 'TBA',
-    gumroadHref: 'https://gumroad.com/',
-  },
-  {
-    name: 'ROM Hack Docs Kit',
-    description:
-      'Notes, templates, and examples for turning source data, changelogs, and community knowledge into documentation players can actually use.',
-    status: 'Idea',
-    category: 'Guide',
-    price: 'TBA',
-    gumroadHref: 'https://gumroad.com/',
+    gumroadHref: 'https://caomicc.gumroad.com/l/beautiful-readme-kit',
   },
 ];
 

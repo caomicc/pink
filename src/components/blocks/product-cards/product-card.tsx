@@ -40,7 +40,7 @@ export function ProductCard({ product }: { product: ProductCardData }) {
             />
           ) : (
             <div className="flex h-full w-full items-center justify-center bg-gradient-to-br from-primary/15 via-muted to-background">
-              <Download className="size-8 text-primary/50" />
+              <Download className="size-8 text-primary" />
             </div>
           )}
         </AspectRatio>

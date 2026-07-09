@@ -5,14 +5,12 @@ import type { BlogPost } from '@/lib/blog';
 
 export function BlogList({ posts }: { posts: BlogPost[] }) {
   return (
-    <div className="overflow-hidden rounded-lg border bg-card">
-      {posts.map((post, i) => (
+    <div className="overflow-hidden gap-4 flex flex-col">
+      {posts.map((post) => (
         <Link
           key={post.slug}
           href={`/blog/${post.slug}`}
-          className={`flex gap-4 px-4 py-4 transition-colors hover:bg-muted/50 sm:px-6 ${
-            i < posts.length - 1 ? 'border-b' : ''
-          }`}
+          className={`flex gap-4 px-4 py-8 transition-colors rounded-lg hover:bg-muted/50 sm:px-6`}
         >
           {post.image && (
             <Image
@@ -39,7 +37,7 @@ export function BlogList({ posts }: { posts: BlogPost[] }) {
               </span>
               <span className="text-xs text-muted-foreground">· {post.readingTime}</span>
             </div>
-            <h3 className="mt-1 font-polished text-base leading-tight">{post.title}</h3>
+            <h3 className="mt-1 leading-tight">{post.title}</h3>
             {post.description && (
               <p className="mt-1 line-clamp-2 text-sm text-muted-foreground">
                 {post.description}

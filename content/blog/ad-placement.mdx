@@ -1,85 +1,132 @@
 ---
 title: "What I Learned About Ads by Getting Them Wrong First"
-description: I went from AdSense auto-placement chaos to intentional ad design. Here's what changed when I started treating ads as part of the user experience instead of an afterthought.
+description: I thought monetization was just flipping on ads. Turns out ads are a UX problem as much as a retention problem.
 date: 2026-06-21
 tags:
+  - web-performance
   - monetization
   - side-project
-  - web-performance
   - ux
-image: /images/polisheddex-og.png
 ---
 
-# What I Learned About Ads by Getting Them Wrong First
+When I started building PolishedDex, I had exactly zero plans to make money from it. It was just a side project. I wanted better documentation for Pokémon ROM hacks than what already existed, so I built the site I wished I had while playing. That was the entire goal. I was honestly just being lazy.
 
-When I first launched PolishedDex, ads weren't even on my radar. The site was a side project — something I built because I wanted better docs for the ROM hacks I was playing. No revenue model, no plan. Just a thing I made.
+Then people actually started using it... which I didn't really expect. Not dozens of people even. Hundreds. Then thousands.
 
-Then it grew. A lot. Hundreds of thousands of monthly users showing up to look up stats, evolutions, item locations. And suddenly I was paying real money to keep it running. So I did what everyone does first — I added AdSense.
+At some point the Vercel bill stopped being "eh, whatever" and became an actual line item in my budget. So I did what most people probably do first:
 
-It was fine. For a while.
+I tried applying for AdSense and flipping on Auto Ads. I figured it would be a nice way to offset costs without having to think about it too much.
 
----
+They never approved me, which - fine. At first it was because the site is mostly a database of information, and not a blog or news site. I added guides to try and get me over the edge, but the vague denials kept on coming. At the same time I'm footing a much larger bill with Vercel* than I expected, so I pivoted.
 
-## Where It Started Going Wrong
+Note: Vercel is one of many hosting providers. When I started with them, I only needed the free plan. But as traffic grew, I had to upgrade to a paid plan. The free plan is great for small projects, but if your site gets a lot of traffic, you'll eventually need to pay for hosting. I personally don't like Netlify, so I'm sticking with Vercel, but there are many other options out there. If you're just starting out, the free plan is a great way to get your project off the ground.
 
-The problem wasn't that I had ads. It was that I'd handed all control to Google and stopped thinking about it:
+What I did get approved with, was Journey by Mediavine.
 
-- **Auto ads injected everywhere.** Between table rows, inside navigation, mid-sentence. On a site where people need to scan data quickly, this was actively hostile.
-- **CLS nightmares.** Ads loading late would shove content around. On a database site where people are comparing stats side-by-side, layout shift destroys the experience.
-- **One-size-fits-all.** No ability to treat a dense stat page differently from a long-form guide. Every page got the same ad firehose.
+## The Next Venture
 
-I wasn't thinking about ads as part of the experience. I was treating them like something I could set and forget. And the site suffered for it.
+After getting approved with Journey, I was excited to finally have a way to subsidize the costs of running PolishedDex. You could honestly pry PolishedDex from my cold dead hands either way, but I was happy to have a way to keep it running without having to dip into my own pocket. Kinda felt bad for my Husband as I had essentially signed us up for a new recurring expense BUT he was supportive.
 
----
+Let me tell you, I learned a lot about ads and user experience in the process. I thought monetization was just flipping on AdSense, I could pick out where the ads go, how much would load, and make sure the people using the site weren't annoyed by them. I was wrong.
 
-## The Real Lesson: Ads Need Design Too
 
-Switching providers wasn't really about money — it was about getting control back. I moved to a managed partner that lets me decide exactly where units go in the DOM. No auto-injection, no surprises.
+### Auto Ads Are Really Good at loading Ads in Places You Didn't Want Them
 
-But the provider switch was just the mechanism. The actual shift was in how I started thinking:
+The script that's embedded on the page auto loaded ads at random ends of paragraphs. When you have interspersed content like PolishedDex does, it can be a bit jarring. There were times where I changed the whole layout and what content went where just to make sure the ads were loading in a way that made sense and not heinously awful and in the way.
 
-**Ads are a design problem, not just a revenue toggle.** They take up space, they affect layout, they compete with content for attention. Treating them as "someone else's problem" meant my users were dealing with a worse site.
+I was never really happy with the results, and reached out to Mediavine directly to try and upgrade my account to a managed ad partner so I could have more control over where the ads were loading. I didn't end up hearing back for a few weeks and had been biting my nails looking at analytics and seeing the ads loading in places that made no sense. They were ugly, not relevant, and I felt a little shameful about them.
 
-Once I started approaching placement intentionally — asking "does this ad hurt the user's ability to find what they came for?" — everything improved. Not just metrics, but how the site *felt*.
+I was trying to make a site that was useful and fun, and the ads were making it feel like a cheap knockoff of something else. I wanted to make sure the ads were relevant and not just random crap that was going to annoy people.
 
----
 
-## What Intentional Placement Looks Like
+It would drop ads:
 
-People come to PolishedDex with a specific question: "What level does this evolve?" or "Where do I find this item?" Every pixel between them and that answer is friction. So the rule became simple: **ads never interrupt the primary lookup flow.**
+* halfway through dense stat tables
+* between related pieces of information
+* inside navigation flows
+* basically anywhere there was an empty space
 
-Where they do go:
+And I wasn't able to change the locations of them.
 
-1. **Below the main data block** — you found your answer, now there's an ad before related content
-2. **Between sections on long pages** — natural content breaks where you'd pause anyway
-3. **Sidebar on wide viewports** — alongside content, not above it
-4. **After engagement is confirmed** — never on initial page load above the fold
+Sure, if your site is a blog and text heavy content then that works super well. But if your site is essentially a giant searchable database where people are trying to answer a question as fast as possible, it's a terrible experience.
 
-What I don't do: interstitials, sticky footers that cover content, auto-playing video, or anything that makes the site feel hostile.
+Someone isn't opening a Pokémon page because they want to browse or read a blog post.
 
-None of this is rocket science. But it requires actually *deciding* — which is the thing AdSense's auto-placement lets you avoid.
+They're trying to figure out:
 
----
+> "When does this evolve?"
 
-## What Changed
+or
 
-The biggest difference wasn't in revenue. It was in how the site felt to use:
+> "What moves does this Pokémon learn?"
 
-- Core Web Vitals improved because I control when and where ads render
-- Bounce rate didn't change — meaning the ads aren't driving people away
-- I stopped getting messages from users about ads breaking the layout
-- The site feels intentional instead of cluttered
+Every extra thing between them and that answer is *friction*.
 
-Revenue did improve too — but that was a side effect of treating ads like a real part of the UX instead of garbage dumped on top of it.
+Then there was layout shift. Don't get me started there.
 
----
+Nothing is more annoying than tapping on something just as an ad loads and pushes the page down. I spend a ridiculous amount of time trying to make pages feel stable and fast, and then I let ads completely undo that work.
 
-## The Takeaway
+I decided that I needed to get out as soon as I could because this was just not working the way I expected.
 
-If you're running ads on a content site and you've just been letting auto-placement do its thing — take an hour and actually look at what your users see. Open your own site on mobile. Try to find a piece of information with fresh eyes.
+## Maybe The Problem Wasn't Ads
 
-The problem usually isn't "too many ads." It's "ads with no thought behind their placement." Once you start treating them as a design decision — same as font size or spacing or color — the whole experience gets better. For everyone.
+No one had really come out to me and said 'hey, your site sucks now'. So I tried to get over that bit of self-doubt and keep trying. I applied for countless different ad networks, tried to set up ad-bidding, and kept meeting roadblocks while staring at these ads that I legally could not take down without notice.
 
----
+Eventually got approved for a managed ad partner. I was SO excited to finally be able to have control over where the ads were loading. I could finally make sure they were relevant and not just random crap that was going to annoy people. Controlling density, placement, making sure that people can close the ads if they want to... It's basic user experience requirements. I wasn't interested in sacrificing all of my work to not even break even.
 
-*This is a behind-the-scenes look at how I run the PolishedDex sites. If you're interested in the tech stack, check out [my original post about building PolishedDex](/blog/polished-dex).*
+It became necessary to have a way to make sure the ads were not annoying and were actually useful.
+
+Once I signed up with Raptive, I was able to start placing Ads where I wanted them. Some hits, some misses. I learned about what type of content is injected where, what performs best, and how to balance user experience with revenue. It became the question of "If I were trying to find information on this page, would this annoy me?" Mostly yes.
+
+
+## Where Ads Actually Belong
+
+For PolishedDex, I settled on a few simple rules.
+
+Ads never interrupt the primary lookup flow.
+
+If someone lands on a Pokémon page, I want them to reach the important information immediately.
+
+After that, ads make a lot more sense. Bottom of page? Sure. Between long content sections? Fine. In a sidebar on larger screens? Works.
+
+So now they usually live:
+
+* below the primary data section
+* between long content sections where there's already a natural pause
+* in sidebars on larger screens
+* after I've established that someone is actually engaging with the page
+
+You'll also never find things like:
+
+* interstitials (gross)
+* surprise ads shoved into the middle of a comparison table (jarring)
+* ads that are random as hell (why are you here)
+* videos that can't be closed (leave me alone!)
+
+Could they make more money? Sure, maybe. But I'd rather have a site people actually want to come back to. And I like my friends.
+
+
+## The Funny Thing Is...
+
+The UX improvements ended up helping the business anyway. Core Web Vitals improved because layouts became predictable. Suddenly I was at 100 on Lighthouse performance scores again. I stopped getting messages about broken pages that turned out to be ad placements. It didn't bother me to look at, and I didn't have to spend hours trying to figure out why the ads were loading in places they shouldn't be.
+
+
+## My Biggest Takeaway
+
+I don't really think the debate is "ads versus no ads."
+
+- Servers cost money.
+- APIs cost money.
+- Traffic costs money.
+
+Most side projects *eventually* need some way to pay for themselves.
+
+The real question is whether your ads respect the reason someone came to your site in the first place. If you haven't looked at your own website with fresh eyes in a while, open it on your phone.
+
+Try to complete whatever task your users normally come for.
+
+Notice every place an ad slows you down, distracts you, or makes the page feel worse. Those are design decisions, even if you never consciously made them!
+
+The biggest lesson wasn't how to monetize a side project it was realizing that monetization is part of the user experience and it deserves the same amount of thought as everything else on the page.
+
+*This is part of a series of posts about building and running PolishedDex. If you're interested in the technical side, I've also written about the stack, performance work, and the architecture behind the project.*

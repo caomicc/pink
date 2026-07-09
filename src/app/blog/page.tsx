@@ -24,7 +24,7 @@ export default function BlogPage() {
         <p className="mb-3 text-[10px] uppercase font-polished text-primary">
           Notes from the workbench
         </p>
-        <h1>Blog</h1>
+        <h1 className='text-page-title'>Blog</h1>
         <p className="text-lead mt-4">
           Thoughts, ideas, and explorations on web development.
         </p>
