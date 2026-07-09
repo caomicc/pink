@@ -32,7 +32,7 @@ const products: ProductCardData[] = [
   {
     name: 'Marketing Landing Page QA Actor',
     description:
-      'An Apify Actor for pre-launch QA of marketing landing pages that flags blockers like missing forms, tracking gaps, broken links, SEO issues, and accessibility smoke problems with screenshot evidence.',
+      'An Apify Actor for pre-launch QA of marketing landing pages.',
     status: 'Available',
     category: 'Apify Actor',
     price: 'Usage-based',

@@ -1,4 +1,4 @@
-import { ArrowUpRight, Download } from 'lucide-react';
+import { ArrowUpRight } from 'lucide-react';
 
 import { AspectRatio } from '@/components/ui/aspect-ratio';
 import { Badge } from '@/components/ui/badge';
@@ -24,27 +24,12 @@ export interface ProductCardData {
 }
 
 export function ProductCard({ product }: { product: ProductCardData }) {
-  const { name, description, status, category, price, image, gumroadHref } = product;
+  const { name, description, status, category, price, gumroadHref } = product;
   const isAvailable = Boolean(gumroadHref);
 
   return (
     <Card className="group gap-0 overflow-hidden py-0">
-      <div className="relative">
-        <AspectRatio ratio={16 / 10}>
-          {image ? (
-            // eslint-disable-next-line @next/next/no-img-element
-            <img
-              alt={name}
-              className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-105"
-              src={image}
-            />
-          ) : (
-            <div className="flex h-full w-full items-center justify-center bg-gradient-to-br from-primary/15 via-muted to-background">
-              <Download className="size-8 text-primary" />
-            </div>
-          )}
-        </AspectRatio>
-
+      <div className="relative pt-6">
         {category && (
           <Badge className="absolute left-3 top-3" variant="secondary">
             {category}
