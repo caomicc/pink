@@ -58,7 +58,7 @@ export function ProductCard({ product }: { product: ProductCardData }) {
       </div>
 
       <CardContent className="flex flex-1 flex-col p-5">
-        <h3 className="font-polished text-lg leading-tight">{name}</h3>
+        <h3 className="font-polished text-[20px] leading-tight">{name}</h3>
         <p className="mt-2 text-sm text-muted-foreground">{description}</p>
       </CardContent>
 
