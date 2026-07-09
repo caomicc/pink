@@ -21,10 +21,12 @@ export interface ProductCardData {
   image?: string;
   /** Gumroad product / download URL. When omitted the card renders as coming soon. */
   gumroadHref?: string;
+
+  cta?: string;
 }
 
 export function ProductCard({ product }: { product: ProductCardData }) {
-  const { name, description, status, category, price, gumroadHref } = product;
+  const { name, description, status, category, price, gumroadHref, cta } = product;
   const isAvailable = Boolean(gumroadHref);
 
   return (
@@ -53,7 +55,7 @@ export function ProductCard({ product }: { product: ProductCardData }) {
         {isAvailable ? (
           <Button asChild size="sm">
             <a href={gumroadHref} target="_blank" rel="noopener noreferrer">
-              Get on Gumroad
+              {cta ?? 'Get on Gumroad'}
               <ArrowUpRight className="size-4" />
             </a>
           </Button>

@@ -16,9 +16,11 @@ const products: ProductCardData[] = [
     name: 'PolishedDex Database Setup',
     description:
       'An automated, source-driven database for ROM hack creators who want structured data instead of maintaining a wiki by hand.',
-    status: 'In progress',
+    status: 'Available',
     category: 'Service',
-    price: 'TBA',
+    price: 'Free',
+    cta: 'Email me',
+    gumroadHref: 'mailto:caomicc@gmail.com',
   },
   {
     name: 'The Beautiful README Kit',
@@ -37,6 +39,7 @@ const products: ProductCardData[] = [
     category: 'Apify Actor',
     price: 'Usage-based',
     gumroadHref: 'https://apify.com/caomicc/marketing-landing-page-qa-actor',
+    cta: 'Apify',
   },
 ];
 
